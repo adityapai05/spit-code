@@ -4,16 +4,15 @@
 
 using namespace std;
 
-struct Product
-{
+// Structure to store the details of each product
+struct Product {
     int productID;
     string productName;
     double price;
 };
 
-// Products are stored in ascending order of Product ID  for Binary Search
-Product products[] =
-{
+// Product IDs are stored in ascending order so that Binary Search can be used
+Product products[] = {
     {101, "Laptop", 55000.50},
     {102, "Smartphone", 24999.99},
     {103, "Headphones", 1999.50},
@@ -29,7 +28,6 @@ Product products[] =
     {113, "Printer", 8999.50},
     {114, "External Hard Drive", 6499.00},
     {115, "Gaming Chair", 15999.99},
-
     {116, "Mechanical Keyboard", 3499.00},
     {117, "Wireless Mouse", 1199.50},
     {118, "Gaming Mouse", 2499.00},
@@ -45,7 +43,6 @@ Product products[] =
     {128, "Computer Cabinet", 4499.00},
     {129, "CPU Cooler", 2499.99},
     {130, "Power Supply", 3999.50},
-
     {131, "Smart TV", 35999.00},
     {132, "Soundbar", 8999.99},
     {133, "Home Theater System", 15999.50},
@@ -56,7 +53,6 @@ Product products[] =
     {138, "Camera Tripod", 1799.99},
     {139, "Camera Bag", 2499.00},
     {140, "Memory Card 128GB", 999.50},
-
     {141, "Wireless Earbuds", 1999.99},
     {142, "Neckband", 1499.00},
     {143, "Portable Speaker", 2999.50},
@@ -67,7 +63,6 @@ Product products[] =
     {148, "Car Charger", 699.50},
     {149, "Phone Holder", 599.99},
     {150, "Selfie Stick", 899.00},
-
     {151, "Gaming Console", 44999.99},
     {152, "Game Controller", 4999.00},
     {153, "Gaming Monitor", 18999.50},
@@ -78,7 +73,6 @@ Product products[] =
     {158, "Racing Wheel", 15999.00},
     {159, "Console Headset", 5499.50},
     {160, "Game Storage Drive", 6999.99},
-
     {161, "Air Conditioner", 38999.00},
     {162, "Air Cooler", 8999.50},
     {163, "Ceiling Fan", 2499.99},
@@ -89,7 +83,6 @@ Product products[] =
     {168, "Electric Kettle", 1499.50},
     {169, "Microwave Oven", 8999.99},
     {170, "Induction Cooktop", 2199.00},
-
     {171, "Refrigerator", 32999.50},
     {172, "Washing Machine", 28999.99},
     {173, "Dishwasher", 35999.00},
@@ -100,7 +93,6 @@ Product products[] =
     {178, "Hand Blender", 1799.99},
     {179, "Rice Cooker", 2499.00},
     {180, "Electric Chopper", 1299.50},
-
     {181, "Backpack", 1999.99},
     {182, "Laptop Backpack", 2499.00},
     {183, "Travel Bag", 2999.50},
@@ -111,7 +103,6 @@ Product products[] =
     {188, "Desk Lamp", 999.00},
     {189, "LED Bulb", 299.50},
     {190, "Smart LED Bulb", 799.99},
-
     {191, "Fitness Band", 2299.00},
     {192, "Yoga Mat", 899.50},
     {193, "Dumbbell Set", 3499.99},
@@ -126,18 +117,16 @@ Product products[] =
 
 const int SIZE = sizeof(products) / sizeof(products[0]);
 
-// Displays details of one product
-void displayProduct(const Product& product)
-{
+// Displays the details of a single product
+void displayProduct(const Product& product) {
     cout << "Product ID   : " << product.productID << endl;
     cout << "Product Name : " << product.productName << endl;
-    cout << "Price        : Rs. "
-         << fixed << setprecision(2) << product.price << endl;
+    cout << "Price        : Rs. " << fixed << setprecision(2)
+         << product.price << endl;
 }
 
-// Displays all products in a table
-void displayAllProducts()
-{
+// Displays the complete product catalogue in a table
+void displayAllProducts() {
     cout << "\n---------------- E-COMMERCE PRODUCT CATALOGUE ----------------\n";
 
     cout << left
@@ -147,8 +136,7 @@ void displayAllProducts()
 
     cout << "---------------------------------------------------------------\n";
 
-    for (int i = 0; i < SIZE; i++)
-    {
+    for (int i = 0; i < SIZE; i++) {
         cout << left
              << setw(10) << products[i].productID
              << setw(28) << products[i].productName
@@ -159,17 +147,15 @@ void displayAllProducts()
     cout << "---------------------------------------------------------------\n";
 }
 
-// Linear Search searches for a Product ID one element at a time and takes O(n) time
-int linearSearch(int targetID, int& comparisons)
-{
+// Searches for a product ID one by one from the beginning
+// The number of comparisons is also counted for performance comparison
+int linearSearch(int targetID, int& comparisons) {
     comparisons = 0;
 
-    for (int i = 0; i < SIZE; i++)
-    {
+    for (int i = 0; i < SIZE; i++) {
         comparisons++;
 
-        if (products[i].productID == targetID)
-        {
+        if (products[i].productID == targetID) {
             return i;
         }
     }
@@ -177,29 +163,28 @@ int linearSearch(int targetID, int& comparisons)
     return -1;
 }
 
-// Binary Search works because products are sorted by Product ID and takes O(logn) time
-int binarySearch(int targetID, int& comparisons)
-{
-    int low = 0, high = SIZE - 1;
-
+// Searches for a product ID using Binary Search.
+// This works because the products are sorted by Product ID.
+int binarySearch(int targetID, int& comparisons) {
+    int low = 0;
+    int high = SIZE - 1;
     comparisons = 0;
 
-    while (low <= high)
-    {
-        int mid = (low + high) / 2;
+    while (low <= high) {
+        // This way of calculating mid avoids overflow for very large arrays
+        int mid = low + (high - low) / 2;
 
         comparisons++;
 
-        if (products[mid].productID == targetID)
-        {
+        if (products[mid].productID == targetID) {
             return mid;
         }
-        else if (products[mid].productID < targetID)
-        {
+        else if (products[mid].productID < targetID) {
+            // Target is greater, so search the right half
             low = mid + 1;
         }
-        else
-        {
+        else {
+            // Target is smaller, so search the left half
             high = mid - 1;
         }
     }
@@ -207,11 +192,10 @@ int binarySearch(int targetID, int& comparisons)
     return -1;
 }
 
-// Linear Search is used for price range searching because the products are not sorted by price
-void searchByPriceRange(double minimumPrice, double maximumPrice)
-{
-    if (minimumPrice > maximumPrice)
-    {
+// Searches for products whose prices fall within the given range.
+// Linear Search is used because the products are not sorted by price.
+void searchByPriceRange(double minimumPrice, double maximumPrice) {
+    if (minimumPrice > maximumPrice) {
         cout << "\nInvalid price range. Minimum price cannot be "
              << "greater than maximum price.\n";
         return;
@@ -230,11 +214,10 @@ void searchByPriceRange(double minimumPrice, double maximumPrice)
 
     cout << "---------------------------------------------------------------\n";
 
-    for (int i = 0; i < SIZE; i++)
-    {
+    for (int i = 0; i < SIZE; i++) {
         if (products[i].price >= minimumPrice &&
-            products[i].price <= maximumPrice)
-        {
+            products[i].price <= maximumPrice) {
+
             found = true;
 
             cout << left
@@ -245,18 +228,16 @@ void searchByPriceRange(double minimumPrice, double maximumPrice)
         }
     }
 
-    if (!found)
-    {
+    if (!found) {
         cout << "No products found in the given price range.\n";
     }
 
     cout << "---------------------------------------------------------------\n";
 }
 
-// Compares Linear Search and Binary Search using
-// the number of comparisons required
-void compareSearches(int targetID)
-{
+// Runs both searches for the same Product ID and compares their
+// number of comparisons and time complexity
+void compareSearches(int targetID) {
     int linearComparisons = 0;
     int binaryComparisons = 0;
 
@@ -264,18 +245,15 @@ void compareSearches(int targetID)
     int binaryResult = binarySearch(targetID, binaryComparisons);
 
     cout << "\n--------------- SEARCH PERFORMANCE COMPARISON ---------------\n";
-
     cout << "Product ID searched : " << targetID << endl;
 
     cout << "\nLinear Search\n";
     cout << "Result              : ";
 
-    if (linearResult != -1)
-    {
+    if (linearResult != -1) {
         cout << "Product Found\n";
     }
-    else
-    {
+    else {
         cout << "Product Not Found\n";
     }
 
@@ -284,12 +262,10 @@ void compareSearches(int targetID)
     cout << "\nBinary Search\n";
     cout << "Result              : ";
 
-    if (binaryResult != -1)
-    {
+    if (binaryResult != -1) {
         cout << "Product Found\n";
     }
-    else
-    {
+    else {
         cout << "Product Not Found\n";
     }
 
@@ -302,23 +278,28 @@ void compareSearches(int targetID)
     cout << "---------------------------------------------------------------\n";
 }
 
-// Searches for a product using Linear Search
-void performLinearSearch()
-{
+// Handles Linear Search from the main menu
+void performLinearSearch() {
     int targetID;
 
     cout << "\nEnter Product ID to search: ";
     cin >> targetID;
+
+    // Check whether the user entered an integer
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(1000, '\n');
+        cout << "Invalid Product ID. Please enter an integer.\n";
+        return;
+    }
 
     int comparisons = 0;
     int index = linearSearch(targetID, comparisons);
 
-    if (index == -1)
-    {
+    if (index == -1) {
         cout << "\nProduct not found.\n";
     }
-    else
-    {
+    else {
         cout << "\nProduct found.\n\n";
         displayProduct(products[index]);
     }
@@ -326,23 +307,28 @@ void performLinearSearch()
     cout << "Number of comparisons: " << comparisons << endl;
 }
 
-// Searches for a product using Binary Search
-void performBinarySearch()
-{
+// Handles Binary Search from the main menu
+void performBinarySearch() {
     int targetID;
 
     cout << "\nEnter Product ID to search: ";
     cin >> targetID;
 
+    // Check whether the user entered an integer
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(1000, '\n');
+        cout << "Invalid Product ID. Please enter an integer.\n";
+        return;
+    }
+
     int comparisons = 0;
     int index = binarySearch(targetID, comparisons);
 
-    if (index == -1)
-    {
+    if (index == -1) {
         cout << "\nProduct not found.\n";
     }
-    else
-    {
+    else {
         cout << "\nProduct found.\n\n";
         displayProduct(products[index]);
     }
@@ -350,16 +336,14 @@ void performBinarySearch()
     cout << "Number of comparisons: " << comparisons << endl;
 }
 
-int main()
-{
+int main() {
     int option = 0;
 
     cout << "===============================================================\n";
     cout << "              E-COMMERCE PRODUCT SEARCH SYSTEM\n";
     cout << "===============================================================\n";
 
-    while (option != 6)
-    {
+    while (option != 6) {
         cout << "\nMENU\n";
         cout << "1. Linear Search by Product ID\n";
         cout << "2. Binary Search by Product ID\n";
@@ -371,8 +355,15 @@ int main()
         cout << "\nEnter your choice: ";
         cin >> option;
 
-        switch (option)
-        {
+        // Handle cases where the user enters something like "abc"
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "\nInvalid input. Please enter a number between 1 and 6.\n";
+            continue;
+        }
+
+        switch (option) {
             case 1:
                 performLinearSearch();
                 break;
@@ -381,27 +372,46 @@ int main()
                 performBinarySearch();
                 break;
 
-            case 3:
-            {
+            case 3: {
                 double minimumPrice;
                 double maximumPrice;
 
                 cout << "\nEnter Minimum Price: ";
                 cin >> minimumPrice;
 
+                if (cin.fail()) {
+                    cin.clear();
+                    cin.ignore(1000, '\n');
+                    cout << "Invalid price. Please enter a number.\n";
+                    break;
+                }
+
                 cout << "Enter Maximum Price: ";
                 cin >> maximumPrice;
+
+                if (cin.fail()) {
+                    cin.clear();
+                    cin.ignore(1000, '\n');
+                    cout << "Invalid price. Please enter a number.\n";
+                    break;
+                }
 
                 searchByPriceRange(minimumPrice, maximumPrice);
                 break;
             }
 
-            case 4:
-            {
+            case 4: {
                 int targetID;
 
                 cout << "\nEnter Product ID to compare searches: ";
                 cin >> targetID;
+
+                if (cin.fail()) {
+                    cin.clear();
+                    cin.ignore(1000, '\n');
+                    cout << "Invalid Product ID. Please enter an integer.\n";
+                    break;
+                }
 
                 compareSearches(targetID);
                 break;
@@ -416,8 +426,7 @@ int main()
                 break;
 
             default:
-                cout << "\nInvalid choice. Please enter a number "
-                     << "between 1 and 6.\n";
+                cout << "\nInvalid choice. Please enter a number between 1 and 6.\n";
         }
     }
 
