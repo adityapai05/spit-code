@@ -47,25 +47,25 @@ WHERE bname = 'karolbagh';
 
 -- 8) List total loan.
 
-SELECT SUM(amount)
+SELECT SUM(amount) as 'Total Loan'
 FROM borrow_40;
 
 
 -- 9) List total number of customer cities.
 
-SELECT COUNT(DISTINCT city)
+SELECT COUNT(DISTINCT city) as 'Total Customer Cities'
 FROM customer_40;
 
 
 -- 10) Count total number of customers.
 
-SELECT COUNT(*)
+SELECT COUNT(*) as 'Total Customers'
 FROM customer_40;
 
 
 -- 11) List maximum loan from VRCE branch.
 
-SELECT MAX(amount)
+SELECT MAX(amount) as 'Maximum Loan from VRCE Branch'
 FROM borrow_40
 WHERE bname = 'vrce';
 
