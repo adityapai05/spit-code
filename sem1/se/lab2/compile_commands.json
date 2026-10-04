@@ -1,0 +1,7 @@
+[
+  {
+    "directory": "/home/demo-d/spit/sem1/se/lab2",
+    "command": "g++ -std=c++17 -Wall -Wextra -c before-refactor.cpp",
+    "file": "/home/demo-d/spit/sem1/se/lab2/before-refactor.cpp"
+  }
+]
