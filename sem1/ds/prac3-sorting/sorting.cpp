@@ -142,6 +142,80 @@ void mergeSort(int arr[], int low, int high)
     }
 }
 
+// Returns the largest element in the array
+int getMax(int arr[], int size)
+{
+    int maximum = arr[0];
+
+    for (int i = 1; i < size; i++)
+    {
+        if (arr[i] > maximum)
+            maximum = arr[i];
+    }
+
+    return maximum;
+}
+
+// Performs Counting Sort for a particular digit
+void countingSort(int arr[], int size, int place)
+{
+    int output[100];
+    int count[10] = {0};
+
+    // Count the occurrence of each digit
+    for (int i = 0; i < size; i++)
+        count[(arr[i] / place) % 10]++;
+
+    // Find the actual position of each digit
+    for (int i = 1; i < 10; i++)
+        count[i] += count[i - 1];
+
+    // Build the output array
+    for (int i = size - 1; i >= 0; i--)
+    {
+        int digit = (arr[i] / place) % 10;
+        output[count[digit] - 1] = arr[i];
+        count[digit]--;
+    }
+
+    // Copy the sorted values back
+    for (int i = 0; i < size; i++)
+        arr[i] = output[i];
+}
+
+// Performs Radix Sort on the given array
+void radixSort(int arr[], int size)
+{
+    int maximum = getMax(arr, size);
+
+    // Sort according to each digit
+    for (int place = 1; maximum / place > 0; place *= 10)
+        countingSort(arr, size, place);
+}
+
+// Performs Shell Sort on the given array
+void shellSort(int arr[], int size)
+{
+    // Start with a gap of half the array size
+    for (int gap = size / 2; gap > 0; gap /= 2)
+    {
+        // Perform insertion sort for the elements with the given gap
+        for (int i = gap; i < size; i++)
+        {
+            int key = arr[i];
+            int j = i;
+
+            while (j >= gap && arr[j - gap] > key)
+            {
+                arr[j] = arr[j - gap];
+                j -= gap;
+            }
+
+            arr[j] = key;
+        }
+    }
+}
+
 // Displays all elements of the array
 void displayArray(int arr[], int size)
 {
@@ -158,7 +232,7 @@ int main()
     int option = 0;
 
     // Keep displaying the menu until the user chooses Exit
-    while (option != 6)
+    while (option != 8)
     {
         cout << "\nMENU\n";
         cout << "1. Bubble Sort\n";
@@ -166,7 +240,9 @@ int main()
         cout << "3. Selection Sort\n";
         cout << "4. Insertion Sort\n";
         cout << "5. Merge Sort\n";
-        cout << "6. Exit\n";
+        cout << "6. Radix Sort\n";
+        cout << "7. Shell Sort\n";
+        cout << "8. Exit\n";
         cout << "Enter your choice: ";
         cin >> option;
 
@@ -437,11 +513,113 @@ int main()
         }
 
         case 6:
+        {
+            int size;
+            int arr[100];
+
+            cout << "Enter size of array (1-100): ";
+            cin >> size;
+
+            if (cin.fail())
+            {
+                cin.clear();
+                cin.ignore(1000, '\n');
+                cout << "Invalid input. Please enter a number." << endl;
+                break;
+            }
+
+            if (size < 1 || size > 100)
+            {
+                cout << "Invalid size. Please enter a size between 1 and 100." << endl;
+                break;
+            }
+
+            cout << "Enter " << size << " elements: ";
+
+            for (int i = 0; i < size; i++)
+            {
+                cin >> arr[i];
+
+                if (cin.fail())
+                {
+                    cin.clear();
+                    cin.ignore(1000, '\n');
+                    cout << "Invalid element. Please enter integers only." << endl;
+                    break;
+                }
+            }
+
+            if (cin.fail())
+                break;
+
+            cout << "Array Before Sorting: ";
+            displayArray(arr, size);
+
+            radixSort(arr, size);
+
+            cout << "Array After Sorting: ";
+            displayArray(arr, size);
+
+            break;
+        }
+
+        case 7:
+        {
+            int size;
+            int arr[100];
+
+            cout << "Enter size of array (1-100): ";
+            cin >> size;
+
+            if (cin.fail())
+            {
+                cin.clear();
+                cin.ignore(1000, '\n');
+                cout << "Invalid input. Please enter a number." << endl;
+                break;
+            }
+
+            if (size < 1 || size > 100)
+            {
+                cout << "Invalid size. Please enter a size between 1 and 100." << endl;
+                break;
+            }
+
+            cout << "Enter " << size << " elements: ";
+
+            for (int i = 0; i < size; i++)
+            {
+                cin >> arr[i];
+
+                if (cin.fail())
+                {
+                    cin.clear();
+                    cin.ignore(1000, '\n');
+                    cout << "Invalid element. Please enter integers only." << endl;
+                    break;
+                }
+            }
+
+            if (cin.fail())
+                break;
+
+            cout << "Array Before Sorting: ";
+            displayArray(arr, size);
+
+            shellSort(arr, size);
+
+            cout << "Array After Sorting: ";
+            displayArray(arr, size);
+
+            break;
+        }
+
+        case 8:
             cout << "Exiting program..." << endl;
             break;
 
         default:
-            cout << "Invalid choice. Please enter 1 to 6." << endl;
+            cout << "Invalid choice. Please enter 1 to 8." << endl;
         }
     }
 
