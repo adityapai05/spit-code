@@ -156,41 +156,38 @@ int getMax(int arr[], int size)
     return maximum;
 }
 
-// Performs Counting Sort for a particular digit
-void countingSort(int arr[], int size, int place)
-{
-    int output[100];
-    int count[10] = {0};
-
-    // Count the occurrence of each digit
-    for (int i = 0; i < size; i++)
-        count[(arr[i] / place) % 10]++;
-
-    // Find the actual position of each digit
-    for (int i = 1; i < 10; i++)
-        count[i] += count[i - 1];
-
-    // Build the output array
-    for (int i = size - 1; i >= 0; i--)
-    {
-        int digit = (arr[i] / place) % 10;
-        output[count[digit] - 1] = arr[i];
-        count[digit]--;
-    }
-
-    // Copy the sorted values back
-    for (int i = 0; i < size; i++)
-        arr[i] = output[i];
-}
-
 // Performs Radix Sort on the given array
 void radixSort(int arr[], int size)
 {
+    // Find the largest number
     int maximum = getMax(arr, size);
 
-    // Sort according to each digit
+    // Process each digit position
     for (int place = 1; maximum / place > 0; place *= 10)
-        countingSort(arr, size, place);
+    {
+        int bucket[10][100] = {};
+        int count[10] = {0};
+
+        // Put numbers into buckets according to current digit
+        for (int i = 0; i < size; i++)
+        {
+            int digit = (arr[i] / place) % 10;
+            bucket[digit][count[digit]] = arr[i];
+            count[digit]++;
+        }
+
+        // Copy buckets back into the array
+        int index = 0;
+
+        for (int digit = 0; digit < 10; digit++)
+        {
+            for (int j = 0; j < count[digit]; j++)
+            {
+                arr[index] = bucket[digit][j];
+                index++;
+            }
+        }
+    }
 }
 
 // Performs Shell Sort on the given array
@@ -534,7 +531,9 @@ int main()
                 break;
             }
 
-            cout << "Enter " << size << " elements: ";
+            cout << "Enter " << size << " non-negative elements: ";
+
+            bool valid = true;
 
             for (int i = 0; i < size; i++)
             {
@@ -545,11 +544,20 @@ int main()
                     cin.clear();
                     cin.ignore(1000, '\n');
                     cout << "Invalid element. Please enter integers only." << endl;
+                    valid = false;
+                    break;
+                }
+
+                if (arr[i] < 0)
+                {
+                    cout << "Radix Sort supports only non-negative integers." << endl;
+                    cin.ignore(1000, '\n');
+                    valid = false;
                     break;
                 }
             }
 
-            if (cin.fail())
+            if (!valid)
                 break;
 
             cout << "Array Before Sorting: ";
