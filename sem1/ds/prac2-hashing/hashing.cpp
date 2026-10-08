@@ -103,14 +103,30 @@ void moduloDivision()
     } while (choice != 3);
 }
 
-// Extract selected digits from the key
+int getDigits(int number)
+{
+    int digits = 0;
+
+    do
+    {
+        digits++;
+        number /= 10;
+    } while (number > 0);
+
+    return digits;
+}
+
 int extractDigits(int key, int positions[], int numberOfPositions)
 {
     int result = 0;
     int multiplier = 1;
+    int digits = getDigits(key);
 
     for (int i = 0; i < numberOfPositions; i++)
     {
+        if (positions[i] > digits)
+            continue;
+
         int temp = key;
 
         for (int j = 1; j < positions[i]; j++)
@@ -125,24 +141,47 @@ int extractDigits(int key, int positions[], int numberOfPositions)
     return result;
 }
 
-// Count number of digits in a key
-int getDigits(int number)
-{
-    int digits = 0;
-
-    do
-    {
-        digits++;
-        number /= 10;
-    } while (number > 0);
-
-    return digits;
-}
-
-// Digit Extraction Hashing
 void digitExtraction()
 {
     initialiseHashTable();
+
+    int numberOfPositions;
+    int positions[10];
+
+    cout << "\nDIGIT EXTRACTION\n";
+
+    cout << "Enter number of digits to extract: ";
+    cin >> numberOfPositions;
+
+    if (cin.fail() || numberOfPositions < 1 || numberOfPositions > 10)
+    {
+        cin.clear();
+        cin.ignore(1000, '\n');
+        cout << "Invalid number of positions." << endl;
+        return;
+    }
+
+    cout << "Enter positions from right side (1 = units digit): ";
+
+    for (int i = 0; i < numberOfPositions; i++)
+        cin >> positions[i];
+
+    if (cin.fail())
+    {
+        cin.clear();
+        cin.ignore(1000, '\n');
+        cout << "Invalid digit positions." << endl;
+        return;
+    }
+
+    for (int i = 0; i < numberOfPositions; i++)
+    {
+        if (positions[i] < 1)
+        {
+            cout << "Invalid digit position." << endl;
+            return;
+        }
+    }
 
     int choice;
 
@@ -170,42 +209,6 @@ void digitExtraction()
                 cout << "Invalid key. Please enter a non-negative number." << endl;
                 continue;
             }
-
-            int digits = getDigits(key);
-            int numberOfPositions;
-            int positions[10];
-
-            cout << "Enter number of digits to extract (1-" << digits << "): ";
-            cin >> numberOfPositions;
-
-            if (cin.fail() || numberOfPositions < 1 || numberOfPositions > digits)
-            {
-                cin.clear();
-                cin.ignore(1000, '\n');
-                cout << "Invalid number of positions." << endl;
-                continue;
-            }
-
-            cout << "Enter positions from right side (1 = units digit): ";
-
-            bool valid = true;
-
-            for (int i = 0; i < numberOfPositions; i++)
-            {
-                cin >> positions[i];
-
-                if (cin.fail() || positions[i] < 1 || positions[i] > digits)
-                {
-                    cin.clear();
-                    cin.ignore(1000, '\n');
-                    cout << "Invalid digit position." << endl;
-                    valid = false;
-                    break;
-                }
-            }
-
-            if (!valid)
-                continue;
 
             int index = extractDigits(key, positions, numberOfPositions);
 
