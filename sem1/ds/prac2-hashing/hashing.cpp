@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int hashTable[100];
@@ -6,7 +7,8 @@ int tableSize;
 int collisions;
 
 // Initialise all hash table positions as empty
-void initialiseHashTable() {
+void initialiseHashTable()
+{
     for (int i = 0; i < tableSize; i++)
         hashTable[i] = -1;
 
@@ -14,10 +16,12 @@ void initialiseHashTable() {
 }
 
 // Find an empty position using Linear Probing
-int linearProbe(int index) {
+int linearProbe(int index)
+{
     int start = index;
 
-    while (hashTable[index] != -1) {
+    while (hashTable[index] != -1)
+    {
         index = (index + 1) % tableSize;
         collisions++;
 
@@ -29,10 +33,12 @@ int linearProbe(int index) {
 }
 
 // Display the hash table
-void displayHashTable() {
+void displayHashTable()
+{
     cout << "\nHash Table:\n";
 
-    for (int i = 0; i < tableSize; i++) {
+    for (int i = 0; i < tableSize; i++)
+    {
         cout << "Index " << i << ": ";
 
         if (hashTable[i] == -1)
@@ -47,12 +53,14 @@ void displayHashTable() {
 }
 
 // Modulo Division Hashing
-void moduloDivision() {
+void moduloDivision()
+{
     initialiseHashTable();
 
     int choice;
 
-    do {
+    do
+    {
         cout << "\nMODULO DIVISION\n";
         cout << "1. Insert Key\n";
         cout << "2. Display Hash Table\n";
@@ -60,13 +68,16 @@ void moduloDivision() {
         cout << "Enter your choice: ";
         cin >> choice;
 
-        if (choice == 1) {
+        if (choice == 1)
+        {
             int key;
 
             cout << "Enter key: ";
             cin >> key;
 
-            if (cin.fail() || key < 0) {
+            // Check that the key is a valid number
+            if (cin.fail() || key < 0)
+            {
                 cin.clear();
                 cin.ignore(1000, '\n');
                 cout << "Invalid key. Please enter a non-negative number." << endl;
@@ -78,7 +89,8 @@ void moduloDivision() {
 
             if (position == -1)
                 cout << "Hash Table is full." << endl;
-            else {
+            else
+            {
                 hashTable[position] = key;
                 cout << "Key inserted at index " << position << endl;
             }
@@ -92,11 +104,13 @@ void moduloDivision() {
 }
 
 // Extract selected digits from the key
-int extractDigits(int key, int positions[], int numberOfPositions) {
+int extractDigits(int key, int positions[], int numberOfPositions)
+{
     int result = 0;
     int multiplier = 1;
 
-    for (int i = 0; i < numberOfPositions; i++) {
+    for (int i = 0; i < numberOfPositions; i++)
+    {
         int temp = key;
 
         for (int j = 1; j < positions[i]; j++)
@@ -112,10 +126,12 @@ int extractDigits(int key, int positions[], int numberOfPositions) {
 }
 
 // Count number of digits in a key
-int getDigits(int number) {
+int getDigits(int number)
+{
     int digits = 0;
 
-    do {
+    do
+    {
         digits++;
         number /= 10;
     } while (number > 0);
@@ -124,12 +140,14 @@ int getDigits(int number) {
 }
 
 // Digit Extraction Hashing
-void digitExtraction() {
+void digitExtraction()
+{
     initialiseHashTable();
 
     int choice;
 
-    do {
+    do
+    {
         cout << "\nDIGIT EXTRACTION\n";
         cout << "1. Insert Key\n";
         cout << "2. Display Hash Table\n";
@@ -137,13 +155,16 @@ void digitExtraction() {
         cout << "Enter your choice: ";
         cin >> choice;
 
-        if (choice == 1) {
+        if (choice == 1)
+        {
             int key;
 
             cout << "Enter key: ";
             cin >> key;
 
-            if (cin.fail() || key < 0) {
+            // Check that the key is a valid number
+            if (cin.fail() || key < 0)
+            {
                 cin.clear();
                 cin.ignore(1000, '\n');
                 cout << "Invalid key. Please enter a non-negative number." << endl;
@@ -157,7 +178,8 @@ void digitExtraction() {
             cout << "Enter number of digits to extract (1-" << digits << "): ";
             cin >> numberOfPositions;
 
-            if (cin.fail() || numberOfPositions < 1 || numberOfPositions > digits) {
+            if (cin.fail() || numberOfPositions < 1 || numberOfPositions > digits)
+            {
                 cin.clear();
                 cin.ignore(1000, '\n');
                 cout << "Invalid number of positions." << endl;
@@ -168,10 +190,12 @@ void digitExtraction() {
 
             bool valid = true;
 
-            for (int i = 0; i < numberOfPositions; i++) {
+            for (int i = 0; i < numberOfPositions; i++)
+            {
                 cin >> positions[i];
 
-                if (cin.fail() || positions[i] < 1 || positions[i] > digits) {
+                if (cin.fail() || positions[i] < 1 || positions[i] > digits)
+                {
                     cin.clear();
                     cin.ignore(1000, '\n');
                     cout << "Invalid digit position." << endl;
@@ -194,7 +218,8 @@ void digitExtraction() {
 
             if (position == -1)
                 cout << "Hash Table is full." << endl;
-            else {
+            else
+            {
                 hashTable[position] = key;
                 cout << "Key inserted at index " << position << endl;
             }
@@ -208,13 +233,15 @@ void digitExtraction() {
 }
 
 // Find k from the number of hash table locations
-int getK() {
+int getK()
+{
     int maxIndex = tableSize - 1;
     return getDigits(maxIndex);
 }
 
 // Folding Hashing
-int foldingHash(int key, bool boundary) {
+int foldingHash(int key)
+{
     int k = getK();
     int groups[20];
     int count = 0;
@@ -223,7 +250,8 @@ int foldingHash(int key, bool boundary) {
     for (int i = 0; i < k; i++)
         divisor *= 10;
 
-    while (key > 0) {
+    while (key > 0)
+    {
         groups[count] = key % divisor;
         key /= divisor;
         count++;
@@ -232,30 +260,31 @@ int foldingHash(int key, bool boundary) {
     if (count == 0)
         groups[count++] = 0;
 
-    // Swap the boundary groups
-    if (boundary) {
-        for (int i = 0; i < count / 2; i++) {
-            int temp = groups[i];
-            groups[i] = groups[count - 1 - i];
-            groups[count - 1 - i] = temp;
-        }
-    }
-
     int sum = 0;
 
     for (int i = 0; i < count; i++)
         sum += groups[i];
 
+    // Keep only k digits and ignore the carry
+    int limit = 1;
+
+    for (int i = 0; i < k; i++)
+        limit *= 10;
+
+    sum = sum % limit;
+
     return sum;
 }
 
 // Fold Boundary Hashing
-void foldBoundary() {
+void foldBoundary()
+{
     initialiseHashTable();
 
     int choice;
 
-    do {
+    do
+    {
         cout << "\nFOLD BOUNDARY\n";
         cout << "1. Insert Key\n";
         cout << "2. Display Hash Table\n";
@@ -263,13 +292,16 @@ void foldBoundary() {
         cout << "Enter your choice: ";
         cin >> choice;
 
-        if (choice == 1) {
+        if (choice == 1)
+        {
             int key;
 
             cout << "Enter key: ";
             cin >> key;
 
-            if (cin.fail() || key < 0) {
+            // Check that the key is a valid number
+            if (cin.fail() || key < 0)
+            {
                 cin.clear();
                 cin.ignore(1000, '\n');
                 cout << "Invalid key. Please enter a non-negative number." << endl;
@@ -277,12 +309,66 @@ void foldBoundary() {
             }
 
             int k = getK();
-            int hashValue = foldingHash(key, true);
+            int divisor = 1;
+
+            for (int i = 0; i < k; i++)
+                divisor *= 10;
+
+            int groups[20];
+            int count = 0;
+            int tempKey = key;
+
+            while (tempKey > 0)
+            {
+                groups[count] = tempKey % divisor;
+                tempKey /= divisor;
+                count++;
+            }
+
+            if (count == 0)
+                groups[count++] = 0;
+
+            // Reverse the boundary groups
+            if (count > 1)
+            {
+                int first = groups[count - 1];
+                int last = groups[0];
+
+                int firstReversed = 0;
+                int lastReversed = 0;
+
+                int temp = first;
+                for (int i = 0; i < k; i++)
+                {
+                    firstReversed = firstReversed * 10 + temp % 10;
+                    temp /= 10;
+                }
+
+                temp = last;
+                for (int i = 0; i < k; i++)
+                {
+                    lastReversed = lastReversed * 10 + temp % 10;
+                    temp /= 10;
+                }
+
+                groups[count - 1] = firstReversed;
+                groups[0] = lastReversed;
+            }
+
+            int hashValue = 0;
+
+            for (int i = 0; i < count; i++)
+                hashValue += groups[i];
+
+            // Ignore the carry above k digits
+            hashValue = hashValue % divisor;
+
             int index = hashValue;
 
             cout << "k = " << k << endl;
             cout << "Folding value = " << hashValue << endl;
 
+            // Apply modulo if value is outside index range
             if (index >= tableSize)
                 index = index % tableSize;
 
@@ -292,7 +378,8 @@ void foldBoundary() {
 
             if (position == -1)
                 cout << "Hash Table is full." << endl;
-            else {
+            else
+            {
                 hashTable[position] = key;
                 cout << "Key inserted at index " << position << endl;
             }
@@ -305,31 +392,42 @@ void foldBoundary() {
     } while (choice != 3);
 }
 
-// Mid Square Hashing
-int midSquareHash(int key) {
+// Find the middle digit or middle two digits
+int midSquareHash(int key)
+{
     int square = key * key;
-    int k = getK();
-    int squareDigits = getDigits(square);
-    int removeDigits = (squareDigits - k) / 2;
 
-    for (int i = 0; i < removeDigits; i++)
-        square /= 10;
+    string number = to_string(square);
+    int length = number.length();
 
-    int divisor = 1;
+    int middle;
 
-    for (int i = 0; i < k; i++)
-        divisor *= 10;
+    if (length % 2 == 1)
+    {
+        // One central digit for odd number of digits
+        middle = number[length / 2] - '0';
+    }
+    else
+    {
+        // Two central digits for even number of digits
+        int first = number[length / 2 - 1] - '0';
+        int second = number[length / 2] - '0';
 
-    return square % divisor;
+        middle = first * 10 + second;
+    }
+
+    return middle;
 }
 
 // Mid Square Hashing
-void midSquare() {
+void midSquare()
+{
     initialiseHashTable();
 
     int choice;
 
-    do {
+    do
+    {
         cout << "\nMID SQUARE\n";
         cout << "1. Insert Key\n";
         cout << "2. Display Hash Table\n";
@@ -337,13 +435,16 @@ void midSquare() {
         cout << "Enter your choice: ";
         cin >> choice;
 
-        if (choice == 1) {
+        if (choice == 1)
+        {
             int key;
 
             cout << "Enter key: ";
             cin >> key;
 
-            if (cin.fail() || key < 0) {
+            // Check that the key is a valid number
+            if (cin.fail() || key < 0)
+            {
                 cin.clear();
                 cin.ignore(1000, '\n');
                 cout << "Invalid key. Please enter a non-negative number." << endl;
@@ -353,17 +454,21 @@ void midSquare() {
             int square = key * key;
             int index = midSquareHash(key);
 
+            cout << "Square = " << square << endl;
+            cout << "Middle value = " << index << endl;
+
+            // Apply modulo if middle value is outside table range
             if (index >= tableSize)
                 index = index % tableSize;
 
-            cout << "Square = " << square << endl;
             cout << "Hash index = " << index << endl;
 
             int position = linearProbe(index);
 
             if (position == -1)
                 cout << "Hash Table is full." << endl;
-            else {
+            else
+            {
                 hashTable[position] = key;
                 cout << "Key inserted at index " << position << endl;
             }
@@ -377,12 +482,14 @@ void midSquare() {
 }
 
 // Direct Hashing
-void directHashing() {
+void directHashing()
+{
     initialiseHashTable();
 
     int choice;
 
-    do {
+    do
+    {
         cout << "\nDIRECT HASHING\n";
         cout << "1. Insert Key\n";
         cout << "2. Display Hash Table\n";
@@ -390,20 +497,25 @@ void directHashing() {
         cout << "Enter your choice: ";
         cin >> choice;
 
-        if (choice == 1) {
+        if (choice == 1)
+        {
             int key;
 
             cout << "Enter key: ";
             cin >> key;
 
-            if (cin.fail() || key < 0) {
+            // Check that the key is a valid number
+            if (cin.fail() || key < 0)
+            {
                 cin.clear();
                 cin.ignore(1000, '\n');
                 cout << "Invalid key. Please enter a non-negative number." << endl;
                 continue;
             }
 
-            if (key >= tableSize) {
+            // Direct hashing needs the key to be a valid index
+            if (key >= tableSize)
+            {
                 cout << "Key must be between 0 and "
                      << tableSize - 1 << "." << endl;
                 continue;
@@ -413,7 +525,8 @@ void directHashing() {
 
             if (position == -1)
                 cout << "Hash Table is full." << endl;
-            else {
+            else
+            {
                 hashTable[position] = key;
                 cout << "Key inserted at index " << position << endl;
             }
@@ -426,21 +539,24 @@ void directHashing() {
     } while (choice != 3);
 }
 
-int main() {
+int main()
+{
     int option = 0;
 
     cout << "Enter number of hash table locations (1-100): ";
     cin >> tableSize;
 
     // Make sure the table size is valid
-    if (cin.fail() || tableSize < 1 || tableSize > 100) {
+    if (cin.fail() || tableSize < 1 || tableSize > 100)
+    {
         cin.clear();
         cin.ignore(1000, '\n');
         cout << "Invalid table size. Please enter a value between 1 and 100." << endl;
         return 0;
     }
 
-    while (option != 6) {
+    while (option != 6)
+    {
         cout << "\nHASHING MENU\n";
         cout << "1. Modulo Division\n";
         cout << "2. Digit Extraction\n";
@@ -452,40 +568,42 @@ int main() {
         cin >> option;
 
         // Check if the user entered a valid number
-        if (cin.fail()) {
+        if (cin.fail())
+        {
             cin.clear();
             cin.ignore(1000, '\n');
             cout << "Invalid input. Please enter a number." << endl;
             continue;
         }
 
-        switch (option) {
-            case 1:
-                moduloDivision();
-                break;
+        switch (option)
+        {
+        case 1:
+            moduloDivision();
+            break;
 
-            case 2:
-                digitExtraction();
-                break;
+        case 2:
+            digitExtraction();
+            break;
 
-            case 3:
-                foldBoundary();
-                break;
+        case 3:
+            foldBoundary();
+            break;
 
-            case 4:
-                midSquare();
-                break;
+        case 4:
+            midSquare();
+            break;
 
-            case 5:
-                directHashing();
-                break;
+        case 5:
+            directHashing();
+            break;
 
-            case 6:
-                cout << "Exiting program..." << endl;
-                break;
+        case 6:
+            cout << "Exiting program..." << endl;
+            break;
 
-            default:
-                cout << "Invalid choice. Please enter 1 to 6." << endl;
+        default:
+            cout << "Invalid choice. Please enter 1 to 6." << endl;
         }
     }
 
