@@ -183,6 +183,8 @@ WHERE
     cname = 'anil';
 
 -- 14. Transfer Rs. 100 from account Anil to account Sunil if both arehaving the same branch.
+START TRANSACTION;
+
 UPDATE deposit_40
 SET
     amount = amount - 100
@@ -191,9 +193,12 @@ WHERE
     AND amount >= 100
     AND bname IN (
         SELECT bname
-        FROM deposit_40
-        WHERE
-            cname = 'sunil'
+        FROM (
+                SELECT bname
+                FROM deposit_40
+                WHERE
+                    cname = 'sunil'
+            ) AS s
     );
 
 UPDATE deposit_40
@@ -203,10 +208,15 @@ WHERE
     cname = 'sunil'
     AND bname IN (
         SELECT bname
-        FROM deposit_40
-        WHERE
-            cname = 'anil'
+        FROM (
+                SELECT bname
+                FROM deposit_40
+                WHERE
+                    cname = 'anil'
+            ) AS a
     );
+
+COMMIT;
 
 -- 15. Add Rs. 100 to the account of all those depositors who arehaving the highest deposit amount in their respective branches.
 UPDATE deposit_40
