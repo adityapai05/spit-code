@@ -1,26 +1,24 @@
--- 1. List names of depositors having same branch as the branch of SUNIL.
+-- 1. List names of depositors having same branch as the branch ofSUNIL.
 SELECT cname
 FROM deposit_40
 WHERE
-    bname = (
+    bname IN (
         SELECT bname
         FROM deposit_40
         WHERE
             cname = 'sunil'
-    )
-    AND cname != 'sunil';
+    );
 
--- 2. List LoanNo and LoanAmount of borrowers having the same branch as the depositor SUNIL.
+-- 2. List LoanNo and LoanAmount of borrowers having the samebranch as the of depositor SUNIL.
 SELECT loan_no, amount
 FROM borrow_40
 WHERE
-    bname = (
+    bname IN (
         SELECT bname
         FROM deposit_40
         WHERE
             cname = 'sunil'
-    )
-    AND cname != 'sunil';
+    );
 
 -- 3. List all depositors living in NAGPUR.
 SELECT cname
@@ -33,32 +31,47 @@ WHERE
             city = 'nagpur'
     );
 
--- 4. List all depositors having deposit in all the branches where SUNIL is having account.
-SELECT cname
-FROM deposit_40
-WHERE
-    bname IN (
-        SELECT bname
+-- 4. List all depositors having deposit in all the branches whereSUNIL is having account.
+SELECT d.cname
+FROM deposit_40 d
+WHERE (
+        SELECT COUNT(DISTINCT bname)
+        FROM deposit_40
+        WHERE
+            cname = d.cname
+            AND bname IN (
+                SELECT bname
+                FROM deposit_40
+                WHERE
+                    cname = 'sunil'
+            )
+    ) = (
+        SELECT COUNT(DISTINCT bname)
         FROM deposit_40
         WHERE
             cname = 'sunil'
-    )
-    AND cname != 'sunil';
+    );
 
 -- 5. List names of customers having maximum deposit.
 SELECT cname
 FROM deposit_40
 WHERE
-    amount IN (
+    amount = (
         SELECT MAX(amount)
         FROM deposit_40
     );
 
--- 6. List names of customers having maximum deposit among customers living in Nagpur.
+-- 6. List names of customers having maximum deposit in thecustomers living in Nagpur.
 SELECT cname
 FROM deposit_40
 WHERE
-    amount = (
+    cname IN (
+        SELECT cname
+        FROM customer_40
+        WHERE
+            city = 'nagpur'
+    )
+    AND amount = (
         SELECT MAX(amount)
         FROM deposit_40
         WHERE
@@ -70,32 +83,35 @@ WHERE
             )
     );
 
--- 7. List the names of branches having highest number of depositors.
+-- 7. List the names of branches having highest number ofdepositors.
 SELECT bname
 FROM deposit_40
 GROUP BY
     bname
 HAVING
     COUNT(cname) >= ALL (
-        SELECT COUNT(cname)
-        FROM deposit_40
-        GROUP BY
-            bname
+        SELECT total
+        FROM (
+                SELECT COUNT(cname) AS total
+                FROM deposit_40
+                GROUP BY
+                    bname
+            ) x
     );
 
--- 8. List the highest deposit of the city where branch of Sunil is located.
-SELECT MAX(amount)
+-- 8. List the highest deposit of the city where branch of Sunil islocated.
+SELECT MAX(amount) AS highest_deposit
 FROM deposit_40
 WHERE
     bname IN (
         SELECT bname
         FROM branch_40
         WHERE
-            city = (
+            city IN (
                 SELECT city
                 FROM branch_40
                 WHERE
-                    bname = (
+                    bname IN (
                         SELECT bname
                         FROM deposit_40
                         WHERE
@@ -104,22 +120,29 @@ WHERE
             )
     );
 
--- 9. List the names of customers having more deposit than the average deposit in their respective branches.
-SELECT d.cname
+-- 9. List the names of customers having more deposit than theaverage deposit in their respective branches.
+SELECT cname
 FROM deposit_40 d
 WHERE
-    d.amount > (
-        SELECT AVG(d2.amount)
-        FROM deposit_40 d2
+    amount > (
+        SELECT AVG(amount)
+        FROM deposit_40
         WHERE
-            d2.bname = d.bname
+            bname = d.bname
     );
 
--- 10. List the names of branches where number of depositors is less than 2.
-SELECT bname FROM deposit_40 GROUP BY bname HAVING COUNT(cname) < 2;
+-- 10. List the names of branches where number of depositors lessthan 2.
+SELECT bname
+FROM branch_40
+WHERE (
+        SELECT COUNT(*)
+        FROM deposit_40
+        WHERE
+            deposit_40.bname = branch_40.bname
+    ) < 2;
 
--- 11. Count the number of customers living in the city where branch is located.
-SELECT COUNT(cname)
+-- 11. Count the number of customers living in the city where branchis located.
+SELECT COUNT(*)
 FROM customer_40
 WHERE
     city IN (
@@ -127,7 +150,7 @@ WHERE
         FROM branch_40
     );
 
--- 12. Change the living city of the VRCE branch borrowers to Nagpur.
+-- 12. Change the living city of the VRCE branch borrowers toNagpur.
 UPDATE customer_40
 SET
     city = 'nagpur'
@@ -139,30 +162,34 @@ WHERE
             bname = 'vrce'
     );
 
--- 13. Update deposit of Anil. Give him maximum deposit from depositors living in city Nagpur.
+-- 13. Update deposit of Anil. Give him maximum deposit fromdepositors living in city Nagpur.
 UPDATE deposit_40
 SET
     amount = (
         SELECT MAX(amount)
-        FROM deposit_40
-        WHERE
-            bname IN (
-                SELECT bname
-                FROM branch_40
+        FROM (
+                SELECT d.amount
+                FROM deposit_40 d
                 WHERE
-                    city = 'nagpur'
-            )
+                    d.cname IN (
+                        SELECT cname
+                        FROM customer_40
+                        WHERE
+                            city = 'nagpur'
+                    )
+            ) x
     )
 WHERE
     cname = 'anil';
 
--- 14. Transfer Rs. 100 from account Anil to account Sunil if both are having the same branch.
+-- 14. Transfer Rs. 100 from account Anil to account Sunil if both arehaving the same branch.
 UPDATE deposit_40
 SET
     amount = amount - 100
 WHERE
     cname = 'anil'
-    AND bname = (
+    AND amount >= 100
+    AND bname IN (
         SELECT bname
         FROM deposit_40
         WHERE
@@ -174,23 +201,25 @@ SET
     amount = amount + 100
 WHERE
     cname = 'sunil'
-    AND bname = (
+    AND bname IN (
         SELECT bname
         FROM deposit_40
         WHERE
             cname = 'anil'
     );
 
--- 15. Add Rs. 100 to the account of all those depositors who are having the highest deposit amount in their respective branches.
+-- 15. Add Rs. 100 to the account of all those depositors who arehaving the highest deposit amount in their respective branches.
 UPDATE deposit_40
 SET
     amount = amount + 100
-WHERE
-    amount IN (
-        SELECT MAX(amount)
-        FROM deposit_40
-        GROUP BY
-            bname
+WHERE (bname, amount) IN (
+        SELECT bname, highest
+        FROM (
+                SELECT bname, MAX(amount) AS highest
+                FROM deposit_40
+                GROUP BY
+                    bname
+            ) x
     );
 
 -- 16. Delete branches having deposit from Nagpur.
@@ -202,7 +231,7 @@ WHERE
         FROM deposit_40
     );
 
--- 17. Delete deposit of Anil and Sunil if both are living in the same city.
+-- 17. Delete deposit of Anil and Sunil if both are living in the samecity.
 DELETE FROM deposit_40
 WHERE
     cname IN ('anil', 'sunil')
@@ -218,57 +247,54 @@ WHERE
             cname = 'sunil'
     );
 
--- 18. Delete borrowers of branches having minimum number of customers.
+-- 18. Delete borrower of branches having minimum number ofcustomers.
 DELETE FROM borrow_40
 WHERE
     bname IN (
         SELECT bname
-        FROM (
-                SELECT bname
-                FROM borrow_40
+        FROM branch_40
+        WHERE
+            city IN (
+                SELECT city
+                FROM customer_40
                 GROUP BY
-                    bname
+                    city
                 HAVING
-                    COUNT(cname) <= ALL (
-                        SELECT COUNT(cname)
-                        FROM borrow_40
-                        GROUP BY
-                            bname
+                    COUNT(*) = (
+                        SELECT MIN(total)
+                        FROM (
+                                SELECT COUNT(*) AS total
+                                FROM customer_40
+                                GROUP BY
+                                    city
+                            ) x
                     )
-            ) AS temp
+            )
     );
 
--- 19. List names of customers who are depositors as well as borrowers.
+-- 19. List names of customers who are depositors as well asborrowers.
 SELECT cname
-FROM customer_40
+FROM deposit_40
 WHERE
     cname IN (
-        SELECT cname
-        FROM deposit_40
-    )
-    AND cname IN (
         SELECT cname
         FROM borrow_40
     );
 
 -- 20. List all the customers who are depositors but not borrowers.
 SELECT cname
-FROM customer_40
+FROM deposit_40
 WHERE
-    cname IN (
-        SELECT cname
-        FROM deposit_40
-    )
-    AND cname NOT IN(
+    cname NOT IN(
         SELECT cname
         FROM borrow_40
     );
 
--- 21. List the depositors having the same living city as Sunil and the same branch city as Anil.
-SELECT d.cname
-FROM deposit_40 d
+-- 21. List the depositors having the same living city as Sunil and thesame branch city as Anil.
+SELECT cname
+FROM deposit_40
 WHERE
-    d.cname IN (
+    cname IN (
         SELECT cname
         FROM customer_40
         WHERE
@@ -279,15 +305,15 @@ WHERE
                     cname = 'sunil'
             )
     )
-    AND d.bname IN (
+    AND bname IN (
         SELECT bname
         FROM branch_40
         WHERE
-            city = (
+            city IN (
                 SELECT city
                 FROM branch_40
                 WHERE
-                    bname = (
+                    bname IN (
                         SELECT bname
                         FROM deposit_40
                         WHERE
@@ -296,7 +322,7 @@ WHERE
             )
     );
 
--- 22. List the depositors having amount less than 5000 and living in the city as Shivani.
+-- 22. List the depositors having amount less than 5000 and living inthe city as Shivani.
 SELECT cname
 FROM deposit_40
 WHERE
@@ -313,20 +339,20 @@ WHERE
             )
     );
 
--- 23. List the customers who are borrowers or depositors and having living city Mumbai and branch city same as that of Sandip.
+-- 23. List the customers who are borrowers or depositors and havingliving city Mumbai andthebranch city same as that of Sandip.
 SELECT cname
 FROM customer_40
 WHERE
     city = 'mumbai'
     AND cname IN (
         SELECT cname
-        FROM deposit_40
+        FROM borrow_40
         WHERE
             bname IN (
                 SELECT bname
                 FROM branch_40
                 WHERE
-                    city = (
+                    city IN (
                         SELECT city
                         FROM branch_40
                         WHERE
@@ -338,15 +364,17 @@ WHERE
                             )
                     )
             )
-        UNION
+    )
+    OR city = 'mumbai'
+    AND cname IN (
         SELECT cname
-        FROM borrow_40
+        FROM deposit_40
         WHERE
             bname IN (
                 SELECT bname
                 FROM branch_40
                 WHERE
-                    city = (
+                    city IN (
                         SELECT city
                         FROM branch_40
                         WHERE
@@ -366,36 +394,34 @@ FROM deposit_40
 GROUP BY
     bname;
 
--- 25. Add 100 to the amount of all depositors having deposit higher than the average deposit of their branch.
+-- 25. Add 100 to the amount of all depositors having deposit higherthan the average deposit of their branch.
 UPDATE deposit_40 d
 SET
     amount = amount + 100
 WHERE
     amount > (
-        SELECT AVG(d2.amount)
-        FROM deposit_40 d2
+        SELECT AVG(amount)
+        FROM (
+                SELECT bname, amount
+                FROM deposit_40
+            ) x
         WHERE
-            d2.bname = d.bname
+            x.bname = d.bname
     );
 
--- 26. List names of depositors who have third highest amount.
+-- 26. List names of depositors who has third highest amount.
 SELECT cname
 FROM deposit_40
 WHERE
     amount = (
-        SELECT MAX(amount)
+        SELECT DISTINCT
+            amount
         FROM deposit_40
-        WHERE
-            amount < (
-                SELECT MAX(amount)
-                FROM deposit_40
-                WHERE
-                    amount < (
-                        SELECT MAX(amount)
-                        FROM deposit_40
-                    )
-            )
+        ORDER BY amount DESC
+        LIMIT 1
+        OFFSET
+            2
     );
 
--- 27. List details of depositors according to ascending order of customer names.
+-- 27. List details of depositors according to ascending order ofcustomer names.
 SELECT * FROM deposit_40 ORDER BY cname ASC;
