@@ -1,0 +1,679 @@
+/* style.css - common styles used on every page */
+
+/* ---------- Basics ---------- */
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* this keeps the footer at the bottom on short pages */
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: #f8fafc;
+  color: #111827;
+  line-height: 1.6;
+}
+
+main {
+  flex: 1;
+  padding: 40px 0 70px 0;
+  /* the page is always at least as tall as the screen, so the footer shows only after scrolling */
+  min-height: calc(100vh - 70px); /* 70px is the height of the header */
+}
+
+/* on pages with a purple banner on top we also remove the height of the banner */
+.page-top + main {
+  min-height: calc(100vh - 235px);
+}
+
+a {
+  color: #6366f1;
+}
+
+h1, h2, h3 {
+  color: #1e1b4b;
+  line-height: 1.3;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: 92%;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.muted {
+  color: #6b7280;
+}
+
+/* ---------- Header and menu ---------- */
+
+header {
+  background-color: white;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-mark {
+  height: 40px;
+  width: auto;
+}
+
+.logo-word {
+  height: 22px;
+  width: auto;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+nav ul a {
+  display: block;
+  text-decoration: none;
+  color: #374151;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+nav ul a:hover {
+  background-color: #f3f4f6;
+}
+
+nav ul a.active {
+  background-color: #eef2ff;
+  color: #4338ca;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #374151;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.user-chip span:last-child {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* the logout icon */
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  color: #4b5563;
+  cursor: pointer;
+}
+
+.icon-button:hover {
+  background-color: #eef2ff;
+  border-color: #c7d2fe;
+  color: #4338ca;
+}
+
+.menu-button {
+  display: none;
+  background: none;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 22px;
+  padding: 2px 12px;
+  cursor: pointer;
+}
+
+/* the round circle with a letter (used in the menu) */
+.avatar {
+  display: inline-block;
+  text-align: center;
+  font-weight: 700;
+  color: white;
+  background-color: #6366f1;
+  border-radius: 50%;
+}
+
+.avatar.small {
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  font-size: 15px;
+}
+
+/* ---------- Buttons ---------- */
+
+.button {
+  display: inline-block;
+  background-color: #6366f1;
+  color: white;
+  border: 2px solid #6366f1;
+  border-radius: 10px;
+  padding: 11px 24px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #4f46e5;
+  border-color: #4f46e5;
+}
+
+.button.outline {
+  background-color: white;
+  color: #4338ca;
+  border-color: #c7d2fe;
+}
+
+.button.outline:hover {
+  background-color: #eef2ff;
+}
+
+.button.small {
+  padding: 8px 18px;
+  font-size: 14px;
+}
+
+.button.full {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.button:disabled {
+  background-color: #f3f4f6;
+  border-color: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* the "Back to games" button */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 8px 16px 8px 12px;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: 24px;
+}
+
+.back-button:hover {
+  background-color: #eef2ff;
+  color: #4338ca;
+}
+
+/* ---------- Form fields ---------- */
+
+input,
+select,
+textarea {
+  padding: 12px 16px;
+  font-family: inherit;
+  font-size: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background-color: white;
+  color: #111827;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid #e0e7ff;
+  border-color: #6366f1;
+}
+
+select.full {
+  display: block;
+  width: 100%;
+}
+
+/* ---------- Game cards ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.card {
+  position: relative;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.16);
+}
+
+.card-image {
+  position: relative;
+}
+
+.card-image img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background-color: #ede9fe;
+  border-radius: 16px 16px 0 0;
+}
+
+.card-body {
+  padding: 18px 18px 20px 18px;
+}
+
+.card h3 {
+  margin: 0 0 12px 0;
+  font-size: 17px;
+}
+
+.card h3 a {
+  text-decoration: none;
+  color: #111827;
+}
+
+.card h3 a:hover {
+  color: #6366f1;
+}
+
+/* the row with stars, year, playtime and score */
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.stars {
+  color: #111827;
+  font-weight: 600;
+}
+
+.stars::first-letter {
+  color: #f59e0b;
+}
+
+.card-genres {
+  margin: 14px 0 6px 0;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.card-platforms {
+  margin: 0;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.card-reason {
+  margin: 16px 0 0 0;
+  background-color: #f5f3ff;
+  color: #5b21b6;
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+/* the Metacritic box */
+.score {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 1px 10px;
+  border-radius: 6px;
+  border: 1px solid;
+}
+
+.score.good {
+  background-color: #ecfdf5;
+  border-color: #a7f3d0;
+  color: #047857;
+}
+
+.score.ok {
+  background-color: #fffbeb;
+  border-color: #fde68a;
+  color: #b45309;
+}
+
+.score.bad {
+  background-color: #fef2f2;
+  border-color: #fecaca;
+  color: #b91c1c;
+}
+
+/* the add to library button on the top right of a card */
+.save-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.save-button svg {
+  fill: none;
+  stroke: #1e1b4b;
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.save-button:hover svg {
+  stroke: #6366f1;
+}
+
+.save-button.saved {
+  background-color: #6366f1;
+}
+
+.save-button.saved svg {
+  fill: white;
+  stroke: white;
+}
+
+/* the small menu that opens under the button */
+.library-menu {
+  position: absolute;
+  top: 60px;
+  right: 12px;
+  z-index: 5;
+  width: 200px;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.menu-title {
+  margin: 4px 8px 6px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+.menu-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #374151;
+  cursor: pointer;
+}
+
+.menu-option:hover {
+  background-color: #f3f4f6;
+}
+
+.menu-option.selected {
+  background-color: #eef2ff;
+  color: #4338ca;
+  font-weight: 600;
+}
+
+.menu-option.remove {
+  color: #b91c1c;
+  margin-top: 4px;
+  border-top: 1px solid #f3f4f6;
+  border-radius: 0 0 8px 8px;
+}
+
+/* ---------- Small labels ---------- */
+
+.tag {
+  display: inline-block;
+  background-color: #ede9fe;
+  color: #4338ca;
+  font-size: 13px;
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+
+.tag.plain {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+}
+
+.chip {
+  display: inline-block;
+  background-color: #6366f1;
+  color: white;
+  font-size: 13px;
+  padding: 4px 16px;
+  border-radius: 20px;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.message {
+  grid-column: 1 / -1;
+  color: #6b7280;
+}
+
+/* ---------- Top banner of inner pages ---------- */
+
+.page-top {
+  background-color: #ede9fe;
+  padding: 44px 0;
+  border-bottom: 1px solid #ddd6fe;
+}
+
+.page-top h1 {
+  margin: 0 0 8px 0;
+  font-size: 34px;
+}
+
+.page-top p {
+  margin: 0;
+  color: #4b5563;
+  max-width: 700px;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  background-color: white;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 50px;
+  font-size: 15px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-logo {
+  display: block;
+  width: 130px;
+  margin-bottom: 14px;
+}
+
+.footer-brand p {
+  margin: 0;
+  max-width: 380px;
+  color: #6b7280;
+}
+
+footer h3 {
+  margin: 0 0 14px 0;
+  font-size: 16px;
+}
+
+footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer li {
+  margin-bottom: 10px;
+}
+
+footer ul a {
+  color: #4b5563;
+  text-decoration: none;
+}
+
+footer ul a:hover {
+  color: #6366f1;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 40px;
+  padding: 22px 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .menu-button {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 16px 4% 22px 4%;
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 6px;
+  }
+}

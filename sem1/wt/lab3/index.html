@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QUEST - Tell us what you want to play</title>
+  <link rel="icon" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/recommend.css">
+</head>
+
+<body>
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="QUEST home">
+        <img src="images/mark.svg" alt="" class="logo-mark">
+        <img src="images/wordmark.png" alt="QUEST" class="logo-word">
+      </a>
+      <button id="menu-button" class="menu-button" aria-label="Open menu">&#9776;</button>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="games.html">Browse Games</a></li>
+          <li><a href="library.html">My Library</a></li>
+          <li><a href="about.html">About Quest</a></li>
+        </ul>
+        <div class="nav-right">
+          <span id="user-chip" class="user-chip" hidden><span class="avatar small" id="user-letter">Q</span><span
+              id="user-name"></span></span>
+          <button id="logout-button" class="icon-button" title="Log out" aria-label="Log out" hidden>
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <a href="login.html" id="login-link" class="button small">Log in</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <span class="badge">Game discovery with AI</span>
+        <h1>Tell us what you feel like playing. We find the game.</h1>
+        <p class="hero-lead">Stuck on what to play next? Describe it in your own words, like you would to a friend.
+          QUEST understands your sentence and finds real games that match.</p>
+
+        <form id="hero-form" class="hero-form">
+          <input type="text" id="hero-input" placeholder="e.g. a relaxing farming game with cute animals"
+            aria-label="What do you feel like playing?">
+          <button type="submit" class="button">Find my game</button>
+        </form>
+
+        <p class="try-text">Not sure what to write? Try one of these:</p>
+        <div class="try-list">
+          <button type="button" class="example">a short emotional story game</button>
+          <button type="button" class="example">something like Hollow Knight</button>
+          <button type="button" class="example">scary co-op game to play with friends</button>
+        </div>
+      </div>
+
+      <div class="hero-demo">
+        <p class="demo-label">Example search</p>
+        <div class="demo-question">"a short emotional story game I can finish in a weekend"</div>
+        <p class="demo-small">QUEST understood:</p>
+        <div class="demo-chips">
+          <span class="chip">Adventure</span>
+          <span class="chip">Story Rich</span>
+          <span class="chip">Emotional</span>
+          <span class="chip">Singleplayer</span>
+        </div>
+        <p class="demo-small">And suggests games like:</p>
+        <ul class="demo-games">
+          <li><b>Life is Strange</b> <span>Matches: Adventure, Story Rich</span></li>
+          <li><b>Firewatch</b> <span>Matches: Adventure, Singleplayer</span></li>
+          <li><b>What Remains of Edith Finch</b> <span>Matches: Story Rich, Emotional</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="results-section" id="results-section" hidden>
+    <div class="container">
+      <h2>Your recommendations</h2>
+      <p id="status" class="status"></p>
+      <div id="understood" class="understood"></div>
+      <div class="grid" id="results"></div>
+    </div>
+  </section>
+
+  <section class="steps">
+    <div class="container">
+      <h2 class="center">How QUEST works</h2>
+      <p class="center sub">Three simple steps from "I do not know what to play" to your next game.</p>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Describe it</h3>
+          <p>Type what you feel like playing in plain English. Mention a mood, a genre, or a game you already love.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>QUEST understands</h3>
+          <p>Google Gemini reads your sentence and turns it into filters like genre and tags, so you never have to pick
+            them yourself.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Get real games</h3>
+          <p>We look up matching games in the RAWG database, show them with a reason, and you save the best ones to your
+            library.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="game-section">
+      <h2>Browse by genre</h2>
+      <div class="genre-list">
+        <a href="games.html?genre=action" class="genre-link">Action</a>
+        <a href="games.html?genre=indie" class="genre-link">Indie</a>
+        <a href="games.html?genre=adventure" class="genre-link">Adventure</a>
+        <a href="games.html?genre=role-playing-games-rpg" class="genre-link">RPG</a>
+        <a href="games.html?genre=strategy" class="genre-link">Strategy</a>
+        <a href="games.html?genre=shooter" class="genre-link">Shooter</a>
+        <a href="games.html?genre=casual" class="genre-link">Casual</a>
+        <a href="games.html?genre=simulation" class="genre-link">Simulation</a>
+        <a href="games.html?genre=puzzle" class="genre-link">Puzzle</a>
+        <a href="games.html?genre=arcade" class="genre-link">Arcade</a>
+        <a href="games.html" class="genre-link more">All genres</a>
+      </div>
+    </section>
+
+    <section class="game-section">
+      <div class="section-head">
+        <div>
+          <h2>Popular right now</h2>
+          <p>Games that most players are adding to their lists.</p>
+        </div>
+        <a href="games.html?sort=-added" class="button outline small">View all</a>
+      </div>
+      <div class="grid" id="popular-games">
+        <p class="message">Loading...</p>
+      </div>
+    </section>
+
+    <section class="game-section">
+      <div class="section-head">
+        <div>
+          <h2>New releases</h2>
+          <p>Released in the last three months.</p>
+        </div>
+        <a href="games.html?sort=-released" class="button outline small">View all</a>
+      </div>
+      <div class="grid" id="new-games">
+        <p class="message">Loading...</p>
+      </div>
+    </section>
+
+    <section class="game-section">
+      <div class="section-head">
+        <div>
+          <h2>Top rated</h2>
+          <p>Games with a Metacritic score of 85 or more.</p>
+        </div>
+        <a href="games.html?sort=-rating" class="button outline small">View all</a>
+      </div>
+      <div class="grid" id="top-games">
+        <p class="message">Loading...</p>
+      </div>
+    </section>
+
+    <section class="game-section">
+      <div class="section-head">
+        <div>
+          <h2>Coming soon</h2>
+          <p>Games that are not out yet.</p>
+        </div>
+        <a href="games.html?sort=-released" class="button outline small">View all</a>
+      </div>
+      <div class="grid" id="upcoming-games">
+        <p class="message">Loading...</p>
+      </div>
+    </section>
+
+  </main>
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="QUEST - find your next adventure" class="footer-logo">
+        <p>A portal into your next gaming experience. Describe what you feel like playing and QUEST finds real games
+          that fit.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="games.html">Browse games</a></li>
+          <li><a href="games.html?sort=-rating">Top rated</a></li>
+          <li><a href="about.html">About Quest</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Your space</h3>
+        <ul>
+          <li><a href="library.html">My library</a></li>
+          <li><a href="login.html">Log in</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 QUEST</p>
+      <p>Game data and images from <a href="https://rawg.io" target="_blank" rel="noopener">RAWG</a></p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/home.js"></script>
+</body>
+
+</html>

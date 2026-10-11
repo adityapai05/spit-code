@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Games - QUEST</title>
+  <link rel="icon" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/games.css">
+</head>
+
+<body>
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="QUEST home">
+        <img src="images/mark.svg" alt="" class="logo-mark">
+        <img src="images/wordmark.png" alt="QUEST" class="logo-word">
+      </a>
+      <button id="menu-button" class="menu-button" aria-label="Open menu">&#9776;</button>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="games.html" class="active">Browse Games</a></li>
+          <li><a href="library.html">My Library</a></li>
+          <li><a href="about.html">About Quest</a></li>
+        </ul>
+        <div class="nav-right">
+          <span id="user-chip" class="user-chip" hidden><span class="avatar small" id="user-letter">Q</span><span
+              id="user-name"></span></span>
+          <button id="logout-button" class="icon-button" title="Log out" aria-label="Log out" hidden>
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <a href="login.html" id="login-link" class="button small">Log in</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-top">
+    <div class="container">
+      <h1>Browse Games</h1>
+      <p>Search the whole RAWG library and narrow it down with filters.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <form id="filter-form" class="filters">
+      <div class="search-row">
+        <input type="text" id="search" placeholder="Search for a game..." aria-label="Search for a game">
+        <button type="submit" class="button">Search</button>
+      </div>
+
+      <div class="filter-grid">
+        <div class="filter">
+          <label for="genre">Genre</label>
+          <select id="genre">
+            <option value="">All genres</option>
+            <option value="action">Action</option>
+            <option value="indie">Indie</option>
+            <option value="adventure">Adventure</option>
+            <option value="role-playing-games-rpg">RPG</option>
+            <option value="strategy">Strategy</option>
+            <option value="shooter">Shooter</option>
+            <option value="casual">Casual</option>
+            <option value="simulation">Simulation</option>
+            <option value="puzzle">Puzzle</option>
+            <option value="arcade">Arcade</option>
+            <option value="platformer">Platformer</option>
+            <option value="racing">Racing</option>
+            <option value="sports">Sports</option>
+            <option value="fighting">Fighting</option>
+            <option value="family">Family</option>
+          </select>
+        </div>
+        <div class="filter">
+          <label for="platform">Platform</label>
+          <select id="platform">
+            <option value="">All platforms</option>
+            <option value="1">PC</option>
+            <option value="2">PlayStation</option>
+            <option value="3">Xbox</option>
+            <option value="7">Nintendo</option>
+            <option value="4">iOS</option>
+            <option value="8">Android</option>
+            <option value="5">Mac</option>
+            <option value="6">Linux</option>
+          </select>
+        </div>
+        <div class="filter">
+          <label for="rating">Rating</label>
+          <select id="rating">
+            <option value="">Any rating</option>
+            <option value="4">4+ stars</option>
+            <option value="3.5">3.5+ stars</option>
+            <option value="3">3+ stars</option>
+          </select>
+        </div>
+        <div class="filter">
+          <label for="playtime">Playtime</label>
+          <select id="playtime">
+            <option value="">Any length</option>
+            <option value="1-5">Short (under 5 hrs)</option>
+            <option value="5-15">Medium (5-15 hrs)</option>
+            <option value="15-40">Long (15-40 hrs)</option>
+            <option value="40-9999">Very long (40+ hrs)</option>
+          </select>
+        </div>
+        <div class="filter">
+          <label for="sort">Sort by</label>
+          <select id="sort">
+            <option value="-added">Most popular</option>
+            <option value="-rating">Highest rated</option>
+            <option value="-metacritic">Metacritic score</option>
+            <option value="-released">Newest first</option>
+            <option value="name">Name (A-Z)</option>
+          </select>
+        </div>
+        <div class="filter filter-reset">
+          <button type="button" id="reset-button" class="button outline">Reset filters</button>
+        </div>
+      </div>
+    </form>
+
+    <p id="result-info" class="result-info"></p>
+
+    <div class="grid" id="game-list"></div>
+
+    <div class="pages">
+      <button id="prev" class="button outline">&larr; Previous</button>
+      <span id="page-number">Page 1</span>
+      <button id="next" class="button outline">Next &rarr;</button>
+    </div>
+  </main>
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="QUEST - find your next adventure" class="footer-logo">
+        <p>A portal into your next gaming experience. Describe what you feel like playing and QUEST finds real games
+          that fit.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="games.html">Browse games</a></li>
+          <li><a href="games.html?sort=-rating">Top rated</a></li>
+          <li><a href="about.html">About Quest</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Your space</h3>
+        <ul>
+          <li><a href="library.html">My library</a></li>
+          <li><a href="login.html">Log in</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 QUEST</p>
+      <p>Game data and images from <a href="https://rawg.io" target="_blank" rel="noopener">RAWG</a></p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/games.js"></script>
+</body>
+
+</html>

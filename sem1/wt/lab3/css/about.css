@@ -1,0 +1,148 @@
+/* about.css - styles for the about page (Jayshree) */
+
+.about-block {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 30px;
+}
+
+.about-block h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #4338ca;
+}
+
+.about-block p {
+  color: #374151;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.about-card {
+  background-color: #f5f3ff;
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.about-card h3 {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+}
+
+.about-card p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* the 4 boxes with arrows */
+.flow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.flow-box {
+  flex: 1;
+  background-color: #eef2ff;
+  border: 1px solid #c7d2fe;
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+
+.flow-box b {
+  display: block;
+  color: #1e1b4b;
+}
+
+.flow-box span {
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.flow-arrow {
+  font-size: 24px;
+  color: #6366f1;
+}
+
+/* tables */
+.about-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.about-table th,
+.about-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.about-table th {
+  background-color: #eef2ff;
+  color: #1e1b4b;
+}
+
+/* team */
+.team {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.team-card {
+  border: 1px solid #ddd6fe;
+  border-radius: 14px;
+  padding: 26px;
+}
+
+.team-card h3 {
+  margin: 10px 0;
+}
+
+.team-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #374151;
+  font-size: 14px;
+}
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  line-height: 52px;
+  text-align: center;
+  font-size: 22px;
+}
+
+@media (max-width: 700px) {
+  .about-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-grid,
+  .team {
+    grid-template-columns: 1fr;
+  }
+  .flow {
+    flex-direction: column;
+  }
+  .flow-box {
+    width: 100%;
+  }
+  .flow-arrow {
+    transform: rotate(90deg);
+  }
+}

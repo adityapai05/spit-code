@@ -1,0 +1,97 @@
+/* library.css - styles for the library page (Jayshree) */
+
+/* the three tabs */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.tab {
+  background-color: white;
+  border: 1px solid #c7d2fe;
+  color: #4338ca;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px 24px;
+  border-radius: 24px;
+  cursor: pointer;
+}
+
+.tab:hover {
+  background-color: #eef2ff;
+}
+
+.tab.active {
+  background-color: #6366f1;
+  border-color: #6366f1;
+  color: white;
+}
+
+/* controls inside a library card */
+.card .status-select {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 9px 12px;
+  font-size: 14px;
+}
+
+.card .remove-button {
+  width: 100%;
+}
+
+/* the box shown when the user is not logged in or a list is empty */
+.empty-state {
+  grid-column: 1 / -1;
+  max-width: 520px;
+  margin: 30px auto;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 48px 32px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.empty-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 22px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eef2ff;
+  border-radius: 50%;
+}
+
+.empty-icon svg {
+  fill: none;
+  stroke: #6366f1;
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.empty-state h2 {
+  margin: 0 0 10px 0;
+  font-size: 22px;
+}
+
+.empty-state p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.empty-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.empty-buttons:empty {
+  display: none;
+}

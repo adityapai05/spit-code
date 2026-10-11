@@ -1,0 +1,113 @@
+/* login.css - styles for the login and signup page (Jayshree) */
+
+.login-page {
+  flex: 1;
+  padding: 0;  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* left side with the logo */
+.login-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #f5f3ff, #e4ecff);
+  color: #6b7280;
+}
+
+.login-logo-card {
+  background-color: white;
+  border-radius: 28px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+}
+
+.login-logo-card img {
+  display: block;
+  width: 230px;
+}
+
+.login-side p {
+  margin: 0;
+}
+
+/* right side with the form */
+.login-form-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 420px;
+}
+
+.login-box h1 {
+  margin: 0 0 8px 0;
+  font-size: 32px;
+}
+
+.login-box > p {
+  margin: 0;
+}
+
+#login-form {
+  margin-top: 32px;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.field input {
+  width: 100%;
+}
+
+#submit-button {
+  margin-top: 28px;
+  padding: 14px;
+  font-size: 16px;
+}
+
+.login-message {
+  margin: 18px 0 0 0;
+  color: #b91c1c;
+  font-size: 14px;
+  text-align: center;
+}
+
+.login-message:empty {
+  display: none;
+}
+
+.switch {
+  margin: 30px 0 0 0;
+  text-align: center;
+  color: #6b7280;
+}
+
+.switch a {
+  font-weight: 600;
+}
+
+@media (max-width: 800px) {
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+  .login-side {
+    display: none;
+  }
+}

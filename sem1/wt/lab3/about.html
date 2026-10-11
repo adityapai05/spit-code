@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - QUEST</title>
+  <link rel="icon" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/about.css">
+</head>
+
+<body>
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="QUEST home">
+        <img src="images/mark.svg" alt="" class="logo-mark">
+        <img src="images/wordmark.png" alt="QUEST" class="logo-word">
+      </a>
+      <button id="menu-button" class="menu-button" aria-label="Open menu">&#9776;</button>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="games.html">Browse Games</a></li>
+          <li><a href="library.html">My Library</a></li>
+          <li><a href="about.html" class="active">About Quest</a></li>
+        </ul>
+        <div class="nav-right">
+          <span id="user-chip" class="user-chip" hidden><span class="avatar small" id="user-letter">Q</span><span
+              id="user-name"></span></span>
+          <button id="logout-button" class="icon-button" title="Log out" aria-label="Log out" hidden>
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <a href="login.html" id="login-link" class="button small">Log in</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-top">
+    <div class="container">
+      <h1>About Quest</h1>
+      <p>A game discovery website where you describe what you want to play and get real game suggestions.</p>
+    </div>
+  </section>
+
+  <main class="container about">
+
+    <section class="about-block">
+      <h2>What is Quest?</h2>
+      <p>Quest is a multi-page website that helps people decide which video game to play next. Instead of scrolling
+        through long lists, the user types a sentence such as <i>"a short emotional story game"</i> or <i>"something
+          like Hollow Knight"</i>. Quest turns that sentence into filters, finds matching games from the RAWG game
+        database and explains why each game was suggested.</p>
+      <p>Users can also browse all games, open a game to see its details and save games to their own library as <b>Want
+          to Play</b>, <b>Playing</b> or <b>Completed</b>.</p>
+    </section>
+
+    <section class="about-block">
+      <h2>The problem we wanted to solve</h2>
+      <p>Game stores show thousands of titles, and normal search boxes only work if you already know the name of the
+        game or the exact filters to use. Most people just know how they feel ("something calm", "something scary with
+        friends"). Quest lets them say that directly.</p>
+    </section>
+
+    <section class="about-block">
+      <h2>Main features</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Recommender (natural language)</h3>
+          <p>The user writes a sentence. Gemini converts it to genres and tags. RAWG returns matching games, each with a
+            "why" line. It works right on the home page.</p>
+        </div>
+        <div class="about-card">
+          <h3>Browse Games</h3>
+          <p>Search by name and filter by genre, platform, rating and playtime. Sort the list and move between pages.
+          </p>
+        </div>
+        <div class="about-card">
+          <h3>Game details</h3>
+          <p>Cover image, rating, Metacritic score, platforms, playtime, screenshots, store links and description.</p>
+        </div>
+        <div class="about-card">
+          <h3>My Library</h3>
+          <p>After login, a user can save any game from its card or details page as Want to Play, Playing or Completed,
+            change the status later or remove it.</p>
+        </div>
+        <div class="about-card">
+          <h3>Home page sections</h3>
+          <p>Popular, New releases, Top rated and Coming soon, all loaded live from RAWG.</p>
+        </div>
+        <div class="about-card">
+          <h3>Login and signup</h3>
+          <p>Email and password accounts using Supabase, so every user has a private library.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-block">
+      <h2>How the recommender works</h2>
+      <div class="flow">
+        <div class="flow-box"><b>1. User sentence</b><span>"a scary co-op game"</span></div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-box"><b>2. Gemini</b><span>returns genres and tags as JSON</span></div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-box"><b>3. RAWG</b><span>searches games with those filters</span></div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-box"><b>4. Results</b><span>game cards with a reason</span></div>
+      </div>
+      <p>Gemini never invents game names. It is only allowed to choose from a fixed list of genres and tags that RAWG
+        understands, and every game shown comes from RAWG. If the user says "like Hollow Knight", we look that game up
+        in RAWG and reuse its genres and tags. If Gemini is not available, the site falls back to a normal RAWG search
+        with the user's words, so it never breaks.</p>
+    </section>
+
+    <section class="about-block">
+      <h2>Technologies used</h2>
+      <table class="about-table">
+        <tr>
+          <th>Technology</th>
+          <th>Used for</th>
+        </tr>
+        <tr>
+          <td>HTML</td>
+          <td>Structure of the six pages</td>
+        </tr>
+        <tr>
+          <td>CSS</td>
+          <td>Layout, colours, cards and responsive design</td>
+        </tr>
+        <tr>
+          <td>JavaScript</td>
+          <td>Fetching data, building the cards, search, filters and the library buttons</td>
+        </tr>
+        <tr>
+          <td>RAWG API</td>
+          <td>Game data: lists, details, ratings, genres and tags</td>
+        </tr>
+        <tr>
+          <td>Google Gemini API</td>
+          <td>Understanding the user's sentence</td>
+        </tr>
+        <tr>
+          <td>Supabase</td>
+          <td>Login (Auth) and the database table that stores each user's library</td>
+        </tr>
+        <tr>
+          <td>Vite</td>
+          <td>Development server and reading the .env keys</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="about-block">
+      <h2>Pages of the website</h2>
+      <table class="about-table">
+        <tr>
+          <th>Page</th>
+          <th>File</th>
+          <th>Purpose</th>
+        </tr>
+        <tr>
+          <td>Home</td>
+          <td>index.html</td>
+          <td>Explains the project, has the recommender box and four game sections</td>
+        </tr>
+        <tr>
+          <td>Browse Games</td>
+          <td>games.html</td>
+          <td>Search, genre filter, sort and pages</td>
+        </tr>
+        <tr>
+          <td>Game details</td>
+          <td>game.html</td>
+          <td>Full details, screenshots, store links and the library box</td>
+        </tr>
+        <tr>
+          <td>My Library</td>
+          <td>library.html</td>
+          <td>Saved games in three lists</td>
+        </tr>
+        <tr>
+          <td>Login</td>
+          <td>login.html</td>
+          <td>Login and signup</td>
+        </tr>
+        <tr>
+          <td>About</td>
+          <td>about.html</td>
+          <td>This page</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="about-block">
+      <h2>Database (Supabase)</h2>
+      <p>We use one table called <b>library</b>. Row Level Security is switched on, so a user can only read and change
+        their own rows.</p>
+      <table class="about-table">
+        <tr>
+          <th>Column</th>
+          <th>Meaning</th>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>Row number</td>
+        </tr>
+        <tr>
+          <td>user_id</td>
+          <td>The logged in user who owns the row</td>
+        </tr>
+        <tr>
+          <td>game_id</td>
+          <td>The game's id in RAWG</td>
+        </tr>
+        <tr>
+          <td>game_name, game_image</td>
+          <td>Saved so the library page can show the game without asking RAWG again</td>
+        </tr>
+        <tr>
+          <td>status</td>
+          <td>want-to-play, playing or completed</td>
+        </tr>
+        <tr>
+          <td>created_at</td>
+          <td>When the game was added</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="about-block">
+      <h2>Our team</h2>
+      <p>We are three first year MCA students at SPIT. We divided the work so that everyone built complete pages of
+        their own.</p>
+      <div class="team">
+        <div class="team-card">
+          <div class="avatar">A</div>
+          <h3>Aditya</h3>
+          <ul>
+            <li>Project setup and .env handling</li>
+            <li>RAWG API functions</li>
+            <li>Home page with four game sections</li>
+            <li>Game details page (screenshots and store links)</li>
+            <li>Header, footer and menu</li>
+          </ul>
+        </div>
+        <div class="team-card">
+          <div class="avatar">Y</div>
+          <h3>Yuvraj</h3>
+          <ul>
+            <li>Gemini integration (natural language)</li>
+            <li>Recommender on the home page and the "why" lines</li>
+            <li>Browse page with six filters and pages</li>
+            <li>Game cards and the add to library button</li>
+            <li>Main CSS (cards, buttons, responsive)</li>
+          </ul>
+        </div>
+        <div class="team-card">
+          <div class="avatar">J</div>
+          <h3>Jayshree</h3>
+          <ul>
+            <li>Supabase setup and library table</li>
+            <li>Login and signup flow</li>
+            <li>My Library page</li>
+            <li>Library box on the game page</li>
+            <li>About page</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-block">
+      <h2>Credits</h2>
+      <p>All game data and images are provided by <a href="https://rawg.io" target="_blank" rel="noopener">RAWG</a>.
+        This website was made for the Web Development Lab 3 assignment and is not a commercial product.</p>
+    </section>
+  </main>
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="QUEST - find your next adventure" class="footer-logo">
+        <p>A portal into your next gaming experience. Describe what you feel like playing and QUEST finds real games
+          that fit.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="games.html">Browse games</a></li>
+          <li><a href="games.html?sort=-rating">Top rated</a></li>
+          <li><a href="about.html">About Quest</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Your space</h3>
+        <ul>
+          <li><a href="library.html">My library</a></li>
+          <li><a href="login.html">Log in</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 QUEST</p>
+      <p>Game data and images from <a href="https://rawg.io" target="_blank" rel="noopener">RAWG</a></p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/about.js"></script>
+</body>
+
+</html>
