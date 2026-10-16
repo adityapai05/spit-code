@@ -1,0 +1,78 @@
+h1 {
+  text-align: center;
+  color: darkblue;
+}
+
+.form {
+  width: 350px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.form h2 {
+  color: orangered;
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+
+.form p {
+  font-size: 14px;
+  margin: 5px 0px;
+}
+
+.form label {
+  display: block;
+  margin-top: 12px;
+  font-size:12px;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 7px;
+  margin-top: 5px;
+  border: 1px solid gray;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font: inherit;
+  font-size: 12px;
+}
+
+.form textarea {
+  height: 80px;
+}
+
+.form button {
+  margin-top: 15px;
+  padding: 8px 12px;
+  background-color: orangered;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.form button:hover {
+  opacity: 90%;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.result h3 {
+  color: orangered;
+  margin: 5px 0px;
+}
+
+.result p {
+  font-size: 12px;
+  margin:2px;
+}
