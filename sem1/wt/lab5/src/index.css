@@ -1,0 +1,19 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #dde3ea;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  font-size: 14px;
+}
+
+input {
+  font-size: 14px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}

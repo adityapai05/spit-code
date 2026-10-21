@@ -1,0 +1,119 @@
+/* main container */
+.app {
+  width: 500px;
+  margin: 30px auto;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.app-header h1 {
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.app-header p {
+  color: gray;
+  margin: 0;
+}
+
+.todo-card {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #999;
+  border-radius: 5px;
+}
+
+/* buttons */
+.btn {
+  padding: 8px 12px;
+  border: 1px black solid;
+  border-radius: 4px;
+}
+
+.btn-primary {
+  background-color: blueviolet;
+  color: white;
+}
+
+.btn-primary:hover {
+  opacity: 75%
+}
+
+.btn-danger {
+  background-color: red;
+}
+
+.btn-danger:hover {
+  opacity: 80%;
+}
+
+/* form */
+.todo-form {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 8px;
+  margin-right: 8px;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+
+/* filters */
+.todo-filters {
+  margin-bottom: 10px;
+}
+
+.filter-btn {
+  padding: 6px 12px;
+  margin-right: 5px;
+  border: 1px solid #999;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+.filter-btn.active {
+  background-color: blueviolet;
+  color: white;
+}
+
+.empty-message {
+  text-align: center;
+  color: gray;
+  padding: 20px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+/* list */
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.todo-checkbox {
+  margin-right: 10px;
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 16px;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* footer */
+.todo-footer {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
