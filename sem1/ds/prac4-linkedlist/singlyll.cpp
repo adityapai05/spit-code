@@ -326,8 +326,9 @@ public:
             return;
         }
 
-        node *p = head, *q=nullptr, *r=nullptr;
-        while(p != nullptr) {
+        node *p = head, *q = nullptr, *r = nullptr;
+        while (p != nullptr)
+        {
             r = q;
             q = p;
             p = p->next;
@@ -365,65 +366,44 @@ public:
         display();
     }
 
-    void mergeSorted(LinkedList &list2)
+    void mergeAlternating(LinkedList &list2)
     {
-        sortList();
-        list2.sortList();
+        if (head == nullptr)
+        {
+            head = list2.head;
+            list2.head = nullptr;
+            cout << "\nLists merged alternately\n";
+            display();
+            return;
+        }
+        if (list2.head == nullptr)
+        {
+            cout << "\nLists merged alternately\n";
+            display();
+            return;
+        }
 
         node *p = head;
         node *q = list2.head;
-        node *mergedHead = nullptr, *tail = nullptr;
-
-        if (p == nullptr)
-        {
-            head = q;
-            list2.head = nullptr;
-            display();
-            return;
-        }
-        if (q == nullptr)
-        {
-            display();
-            return;
-        }
-
-        if (p->data <= q->data)
-        {
-            tail = p;
-            mergedHead = p;
-            p = p->next;
-        }
-        else
-        {
-            mergedHead = q;
-            tail = q;
-            q = q->next;
-        }
+        node *pNext = nullptr, *qNext = nullptr;
 
         while (p != nullptr && q != nullptr)
         {
-            if (p->data <= q->data)
+            pNext = p->next;
+            qNext = q->next;
+
+            p->next = q;
+            if (pNext != nullptr)
             {
-                tail->next = p;
-                tail = p;
-                p = p->next;
+                q->next = pNext;
             }
-            else
-            {
-                tail->next = q;
-                tail = q;
-                q = q->next;
-            }
+
+            p = pNext;
+            q = qNext;
         }
 
-        if (p != nullptr)
-            tail->next = p;
-        else
-            tail->next = q;
-
-        head = mergedHead;
         list2.head = nullptr;
-        cout << "\nLists merged in sorted order\n";
+        cout << "\nLists merged alternately\n";
         display();
     }
 
@@ -628,7 +608,7 @@ int main()
         cout << "11. Sort List\n";
         cout << "12. Reverse List\n";
         cout << "13. Concatenate with Another List\n";
-        cout << "14. Merge Two Sorted Lists\n";
+        cout << "14. Merge Two Linked Lists\n";
         cout << "15. Union of Two Lists\n";
         cout << "16. Intersection of Two Lists\n";
         cout << "17. Create Cycle & Display\n";
@@ -713,7 +693,7 @@ int main()
         case 14:
             list2 = LinkedList();
             list.createSecondList(list2);
-            list.mergeSorted(list2);
+            list.mergeAlternating(list2);
             break;
 
         case 15:
