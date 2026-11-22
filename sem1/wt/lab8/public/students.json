@@ -1,0 +1,1589 @@
+[
+  {
+    "id": "2026510001",
+    "name": "Varun Kumaresan",
+    "class": "FYMCA",
+    "attendance": 96,
+    "marks": {
+      "web": 69,
+      "java": 68,
+      "dbms": 79,
+      "python": 72,
+      "maths": 71
+    },
+    "assignmentsCompleted": 5,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      70,
+      69,
+      78,
+      68,
+      77
+    ]
+  },
+  {
+    "id": "2026510002",
+    "name": "Ruchit Dinesh Ahuja",
+    "class": "FYMCA",
+    "attendance": 96,
+    "marks": {
+      "web": 30,
+      "java": 31,
+      "dbms": 33,
+      "python": 33,
+      "maths": 38
+    },
+    "assignmentsCompleted": 8,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      38,
+      29,
+      37,
+      32,
+      40
+    ]
+  },
+  {
+    "id": "2026510003",
+    "name": "Saniya Premkumar Ahuja",
+    "class": "FYMCA",
+    "attendance": 79,
+    "marks": {
+      "web": 69,
+      "java": 77,
+      "dbms": 78,
+      "python": 65,
+      "maths": 77
+    },
+    "assignmentsCompleted": 6,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      76,
+      66,
+      75,
+      70,
+      69
+    ]
+  },
+  {
+    "id": "2026510004",
+    "name": "Veeksha Tharanatha Alva",
+    "class": "FYMCA",
+    "attendance": 64,
+    "marks": {
+      "web": 81,
+      "java": 77,
+      "dbms": 77,
+      "python": 82,
+      "maths": 77
+    },
+    "assignmentsCompleted": 10,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      80,
+      88,
+      80,
+      84,
+      79
+    ]
+  },
+  {
+    "id": "2026510005",
+    "name": "Vaibhav Sanjay Avhad",
+    "class": "FYMCA",
+    "attendance": 85,
+    "marks": {
+      "web": 49,
+      "java": 41,
+      "dbms": 36,
+      "python": 43,
+      "maths": 39
+    },
+    "assignmentsCompleted": 9,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      47,
+      44,
+      43,
+      48,
+      47
+    ]
+  },
+  {
+    "id": "2026510006",
+    "name": "Renee Anando Bagdde",
+    "class": "FYMCA",
+    "attendance": 86,
+    "marks": {
+      "web": 32,
+      "java": 42,
+      "dbms": 35,
+      "python": 44,
+      "maths": 36
+    },
+    "assignmentsCompleted": 7,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      32,
+      44,
+      34,
+      44,
+      32
+    ]
+  },
+  {
+    "id": "2026510007",
+    "name": "Harsh Sanjay Bharati",
+    "class": "FYMCA",
+    "attendance": 66,
+    "marks": {
+      "web": 86,
+      "java": 83,
+      "dbms": 86,
+      "python": 86,
+      "maths": 84
+    },
+    "assignmentsCompleted": 9,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      90,
+      84,
+      91,
+      94,
+      90
+    ]
+  },
+  {
+    "id": "2026510008",
+    "name": "Prathmesh Vitthal Bhilare",
+    "class": "FYMCA",
+    "attendance": 76,
+    "marks": {
+      "web": 73,
+      "java": 65,
+      "dbms": 64,
+      "python": 69,
+      "maths": 68
+    },
+    "assignmentsCompleted": 10,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      65,
+      75,
+      71,
+      72,
+      69
+    ]
+  },
+  {
+    "id": "2026510009",
+    "name": "Hamza Bohra",
+    "class": "FYMCA",
+    "attendance": 75,
+    "marks": {
+      "web": 89,
+      "java": 77,
+      "dbms": 80,
+      "python": 90,
+      "maths": 77
+    },
+    "assignmentsCompleted": 9,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      88,
+      81,
+      82,
+      80,
+      77
+    ]
+  },
+  {
+    "id": "2026510010",
+    "name": "Anusaya Ganpat Buchade",
+    "class": "FYMCA",
+    "attendance": 77,
+    "marks": {
+      "web": 90,
+      "java": 87,
+      "dbms": 86,
+      "python": 94,
+      "maths": 94
+    },
+    "assignmentsCompleted": 10,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      89,
+      86,
+      81,
+      83,
+      81
+    ]
+  },
+  {
+    "id": "2026510011",
+    "name": "Aastha Yuvrajsingh Chandel",
+    "class": "FYMCA",
+    "attendance": 93,
+    "marks": {
+      "web": 55,
+      "java": 53,
+      "dbms": 50,
+      "python": 58,
+      "maths": 53
+    },
+    "assignmentsCompleted": 5,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      49,
+      48,
+      46,
+      45,
+      51
+    ]
+  },
+  {
+    "id": "2026510012",
+    "name": "Aditya Jtendra Chavan",
+    "class": "FYMCA",
+    "attendance": 91,
+    "marks": {
+      "web": 24,
+      "java": 32,
+      "dbms": 24,
+      "python": 34,
+      "maths": 32
+    },
+    "assignmentsCompleted": 9,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      27,
+      30,
+      22,
+      27,
+      27
+    ]
+  },
+  {
+    "id": "2026510013",
+    "name": "Gaurav Dhedia",
+    "class": "FYMCA",
+    "attendance": 83,
+    "marks": {
+      "web": 76,
+      "java": 63,
+      "dbms": 73,
+      "python": 74,
+      "maths": 64
+    },
+    "assignmentsCompleted": 5,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      72,
+      76,
+      70,
+      74,
+      66
+    ]
+  },
+  {
+    "id": "2026510014",
+    "name": "Aditya Rajesh Dhodi",
+    "class": "FYMCA",
+    "attendance": 68,
+    "marks": {
+      "web": 84,
+      "java": 95,
+      "dbms": 98,
+      "python": 95,
+      "maths": 88
+    },
+    "assignmentsCompleted": 10,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      91,
+      95,
+      85,
+      91,
+      97
+    ]
+  },
+  {
+    "id": "2026510015",
+    "name": "Prajwal Prakash Dhumal",
+    "class": "FYMCA",
+    "attendance": 95,
+    "marks": {
+      "web": 76,
+      "java": 77,
+      "dbms": 71,
+      "python": 70,
+      "maths": 73
+    },
+    "assignmentsCompleted": 5,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      79,
+      69,
+      75,
+      79,
+      81
+    ]
+  },
+  {
+    "id": "2026510016",
+    "name": "Anirudh Gangwar",
+    "class": "FYMCA",
+    "attendance": 98,
+    "marks": {
+      "web": 24,
+      "java": 35,
+      "dbms": 26,
+      "python": 35,
+      "maths": 34
+    },
+    "assignmentsCompleted": 5,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      32,
+      24,
+      23,
+      22,
+      23
+    ]
+  },
+  {
+    "id": "2026510017",
+    "name": "Rudresh Chandrakant Gaudnour",
+    "class": "FYMCA",
+    "attendance": 72,
+    "marks": {
+      "web": 72,
+      "java": 60,
+      "dbms": 71,
+      "python": 67,
+      "maths": 71
+    },
+    "assignmentsCompleted": 7,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      60,
+      60,
+      68,
+      65,
+      66
+    ]
+  },
+  {
+    "id": "2026510018",
+    "name": "Abhishek Ajay Gorivale",
+    "class": "FYMCA",
+    "attendance": 85,
+    "marks": {
+      "web": 86,
+      "java": 97,
+      "dbms": 91,
+      "python": 95,
+      "maths": 94
+    },
+    "assignmentsCompleted": 8,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      93,
+      85,
+      93,
+      86,
+      88
+    ]
+  },
+  {
+    "id": "2026510019",
+    "name": "Niharika Rajesh Gupta",
+    "class": "FYMCA",
+    "attendance": 76,
+    "marks": {
+      "web": 57,
+      "java": 59,
+      "dbms": 59,
+      "python": 57,
+      "maths": 61
+    },
+    "assignmentsCompleted": 5,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      55,
+      64,
+      63,
+      58,
+      64
+    ]
+  },
+  {
+    "id": "2026510020",
+    "name": "Ajit Hanumant Jadhav",
+    "class": "FYMCA",
+    "attendance": 79,
+    "marks": {
+      "web": 68,
+      "java": 71,
+      "dbms": 69,
+      "python": 82,
+      "maths": 68
+    },
+    "assignmentsCompleted": 10,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      80,
+      72,
+      68,
+      75,
+      70
+    ]
+  },
+  {
+    "id": "2026510021",
+    "name": "Bhumi Darshan Jain",
+    "class": "FYMCA",
+    "attendance": 88,
+    "marks": {
+      "web": 64,
+      "java": 73,
+      "dbms": 76,
+      "python": 76,
+      "maths": 71
+    },
+    "assignmentsCompleted": 6,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      70,
+      68,
+      64,
+      73,
+      68
+    ]
+  },
+  {
+    "id": "2026510022",
+    "name": "Dheeraj Kalouni",
+    "class": "FYMCA",
+    "attendance": 68,
+    "marks": {
+      "web": 76,
+      "java": 75,
+      "dbms": 76,
+      "python": 76,
+      "maths": 77
+    },
+    "assignmentsCompleted": 5,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      82,
+      80,
+      69,
+      79,
+      79
+    ]
+  },
+  {
+    "id": "2026510023",
+    "name": "Karan Shivaji Kamble",
+    "class": "FYMCA",
+    "attendance": 73,
+    "marks": {
+      "web": 61,
+      "java": 62,
+      "dbms": 50,
+      "python": 52,
+      "maths": 52
+    },
+    "assignmentsCompleted": 7,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      51,
+      56,
+      55,
+      50,
+      54
+    ]
+  },
+  {
+    "id": "2026510024",
+    "name": "Dhruv Deepak Kanade",
+    "class": "FYMCA",
+    "attendance": 96,
+    "marks": {
+      "web": 97,
+      "java": 84,
+      "dbms": 90,
+      "python": 95,
+      "maths": 96
+    },
+    "assignmentsCompleted": 5,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      95,
+      90,
+      83,
+      82,
+      92
+    ]
+  },
+  {
+    "id": "2026510025",
+    "name": "Tushar Kanade",
+    "class": "FYMCA",
+    "attendance": 65,
+    "marks": {
+      "web": 89,
+      "java": 79,
+      "dbms": 78,
+      "python": 82,
+      "maths": 83
+    },
+    "assignmentsCompleted": 6,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      82,
+      78,
+      88,
+      81,
+      89
+    ]
+  },
+  {
+    "id": "2026510026",
+    "name": "Aryan Anand Karnavat",
+    "class": "FYMCA",
+    "attendance": 97,
+    "marks": {
+      "web": 56,
+      "java": 66,
+      "dbms": 64,
+      "python": 64,
+      "maths": 59
+    },
+    "assignmentsCompleted": 10,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      55,
+      57,
+      62,
+      62,
+      63
+    ]
+  },
+  {
+    "id": "2026510027",
+    "name": "Apurva Mangesh Karpe",
+    "class": "FYMCA",
+    "attendance": 65,
+    "marks": {
+      "web": 40,
+      "java": 41,
+      "dbms": 40,
+      "python": 37,
+      "maths": 46
+    },
+    "assignmentsCompleted": 5,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      47,
+      44,
+      36,
+      47,
+      41
+    ]
+  },
+  {
+    "id": "2026510028",
+    "name": "Harsh Mahendra Katenge",
+    "class": "FYMCA",
+    "attendance": 66,
+    "marks": {
+      "web": 74,
+      "java": 73,
+      "dbms": 68,
+      "python": 62,
+      "maths": 60
+    },
+    "assignmentsCompleted": 10,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      67,
+      60,
+      72,
+      61,
+      60
+    ]
+  },
+  {
+    "id": "2026510029",
+    "name": "Suraj Anil Khaw",
+    "class": "FYMCA",
+    "attendance": 98,
+    "marks": {
+      "web": 54,
+      "java": 67,
+      "dbms": 62,
+      "python": 56,
+      "maths": 62
+    },
+    "assignmentsCompleted": 9,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      61,
+      52,
+      61,
+      53,
+      58
+    ]
+  },
+  {
+    "id": "2026510030",
+    "name": "Rajesh Vijay Mane",
+    "class": "FYMCA",
+    "attendance": 81,
+    "marks": {
+      "web": 47,
+      "java": 54,
+      "dbms": 55,
+      "python": 49,
+      "maths": 47
+    },
+    "assignmentsCompleted": 8,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      47,
+      49,
+      45,
+      53,
+      53
+    ]
+  },
+  {
+    "id": "2026510031",
+    "name": "Vishal Pradip Masule",
+    "class": "FYMCA",
+    "attendance": 94,
+    "marks": {
+      "web": 90,
+      "java": 77,
+      "dbms": 76,
+      "python": 83,
+      "maths": 85
+    },
+    "assignmentsCompleted": 7,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      84,
+      76,
+      76,
+      83,
+      78
+    ]
+  },
+  {
+    "id": "2026510032",
+    "name": "Mayank Rajesh Matang",
+    "class": "FYMCA",
+    "attendance": 81,
+    "marks": {
+      "web": 64,
+      "java": 51,
+      "dbms": 64,
+      "python": 53,
+      "maths": 55
+    },
+    "assignmentsCompleted": 9,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      53,
+      51,
+      56,
+      62,
+      57
+    ]
+  },
+  {
+    "id": "2026510033",
+    "name": "Vinayak More",
+    "class": "FYMCA",
+    "attendance": 70,
+    "marks": {
+      "web": 89,
+      "java": 87,
+      "dbms": 79,
+      "python": 89,
+      "maths": 92
+    },
+    "assignmentsCompleted": 7,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      86,
+      82,
+      92,
+      88,
+      79
+    ]
+  },
+  {
+    "id": "2026510034",
+    "name": "Prachi Ramakant Morey",
+    "class": "FYMCA",
+    "attendance": 78,
+    "marks": {
+      "web": 45,
+      "java": 42,
+      "dbms": 36,
+      "python": 38,
+      "maths": 38
+    },
+    "assignmentsCompleted": 9,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      42,
+      36,
+      44,
+      38,
+      36
+    ]
+  },
+  {
+    "id": "2026510035",
+    "name": "Saksham Ramesh Munne",
+    "class": "FYMCA",
+    "attendance": 83,
+    "marks": {
+      "web": 99,
+      "java": 98,
+      "dbms": 85,
+      "python": 86,
+      "maths": 95
+    },
+    "assignmentsCompleted": 6,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      90,
+      97,
+      88,
+      84,
+      84
+    ]
+  },
+  {
+    "id": "2026510036",
+    "name": "Manav Ujwal Naik",
+    "class": "FYMCA",
+    "attendance": 100,
+    "marks": {
+      "web": 100,
+      "java": 100,
+      "dbms": 100,
+      "python": 100,
+      "maths": 100
+    },
+    "assignmentsCompleted": 10,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      100,
+      100,
+      100,
+      100,
+      100
+    ]
+  },
+  {
+    "id": "2026510037",
+    "name": "Jasika Jayaraj Nair",
+    "class": "FYMCA",
+    "attendance": 64,
+    "marks": {
+      "web": 60,
+      "java": 59,
+      "dbms": 53,
+      "python": 57,
+      "maths": 53
+    },
+    "assignmentsCompleted": 7,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      50,
+      54,
+      55,
+      64,
+      64
+    ]
+  },
+  {
+    "id": "2026510038",
+    "name": "Jayshree Umesh Nanaware",
+    "class": "FYMCA",
+    "attendance": 71,
+    "marks": {
+      "web": 53,
+      "java": 44,
+      "dbms": 48,
+      "python": 55,
+      "maths": 51
+    },
+    "assignmentsCompleted": 6,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      56,
+      55,
+      48,
+      51,
+      53
+    ]
+  },
+  {
+    "id": "2026510039",
+    "name": "Yuvraj Atul Nirale",
+    "class": "FYMCA",
+    "attendance": 88,
+    "marks": {
+      "web": 91,
+      "java": 81,
+      "dbms": 93,
+      "python": 85,
+      "maths": 79
+    },
+    "assignmentsCompleted": 10,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      80,
+      89,
+      92,
+      83,
+      90
+    ]
+  },
+  {
+    "id": "2026510040",
+    "name": "Aditya Suhas Pai",
+    "class": "FYMCA",
+    "attendance": 100,
+    "marks": {
+      "web": 100,
+      "java": 100,
+      "dbms": 100,
+      "python": 100,
+      "maths": 100
+    },
+    "assignmentsCompleted": 10,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      100,
+      100,
+      100,
+      100,
+      100
+    ]
+  },
+  {
+    "id": "2026510041",
+    "name": "Harshad Gorkshnath Parab",
+    "class": "FYMCA",
+    "attendance": 87,
+    "marks": {
+      "web": 62,
+      "java": 61,
+      "dbms": 70,
+      "python": 69,
+      "maths": 70
+    },
+    "assignmentsCompleted": 7,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      59,
+      59,
+      56,
+      66,
+      59
+    ]
+  },
+  {
+    "id": "2026510042",
+    "name": "Soham Sanjay Parab",
+    "class": "FYMCA",
+    "attendance": 63,
+    "marks": {
+      "web": 44,
+      "java": 36,
+      "dbms": 37,
+      "python": 42,
+      "maths": 40
+    },
+    "assignmentsCompleted": 5,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      37,
+      41,
+      44,
+      39,
+      36
+    ]
+  },
+  {
+    "id": "2026510043",
+    "name": "Pranav Prakash Pardhi",
+    "class": "FYMCA",
+    "attendance": 82,
+    "marks": {
+      "web": 46,
+      "java": 53,
+      "dbms": 48,
+      "python": 44,
+      "maths": 45
+    },
+    "assignmentsCompleted": 8,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      52,
+      49,
+      48,
+      54,
+      55
+    ]
+  },
+  {
+    "id": "2026510044",
+    "name": "Bhakti Kishor Patil",
+    "class": "FYMCA",
+    "attendance": 95,
+    "marks": {
+      "web": 61,
+      "java": 66,
+      "dbms": 74,
+      "python": 69,
+      "maths": 63
+    },
+    "assignmentsCompleted": 9,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      63,
+      59,
+      70,
+      65,
+      59
+    ]
+  },
+  {
+    "id": "2026510045",
+    "name": "Kashmira Kiran Patil",
+    "class": "FYMCA",
+    "attendance": 82,
+    "marks": {
+      "web": 86,
+      "java": 85,
+      "dbms": 78,
+      "python": 80,
+      "maths": 81
+    },
+    "assignmentsCompleted": 10,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      75,
+      84,
+      88,
+      79,
+      83
+    ]
+  },
+  {
+    "id": "2026510046",
+    "name": "Akshat Anilkumar Patle",
+    "class": "FYMCA",
+    "attendance": 97,
+    "marks": {
+      "web": 88,
+      "java": 78,
+      "dbms": 82,
+      "python": 78,
+      "maths": 84
+    },
+    "assignmentsCompleted": 6,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      79,
+      78,
+      79,
+      84,
+      77
+    ]
+  },
+  {
+    "id": "2026510047",
+    "name": "Vaibhav Utkarsh Pawar",
+    "class": "FYMCA",
+    "attendance": 62,
+    "marks": {
+      "web": 76,
+      "java": 80,
+      "dbms": 81,
+      "python": 84,
+      "maths": 72
+    },
+    "assignmentsCompleted": 7,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      78,
+      78,
+      73,
+      75,
+      77
+    ]
+  },
+  {
+    "id": "2026510048",
+    "name": "Snehal Kapil Pawar",
+    "class": "FYMCA",
+    "attendance": 94,
+    "marks": {
+      "web": 67,
+      "java": 64,
+      "dbms": 64,
+      "python": 65,
+      "maths": 60
+    },
+    "assignmentsCompleted": 8,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      61,
+      61,
+      61,
+      64,
+      57
+    ]
+  },
+  {
+    "id": "2026510049",
+    "name": "Rachit Vaibhav Piwlatkar",
+    "class": "FYMCA",
+    "attendance": 67,
+    "marks": {
+      "web": 89,
+      "java": 80,
+      "dbms": 88,
+      "python": 79,
+      "maths": 82
+    },
+    "assignmentsCompleted": 6,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      85,
+      87,
+      87,
+      86,
+      82
+    ]
+  },
+  {
+    "id": "2026510050",
+    "name": "Archit Sandeep Pokharankar",
+    "class": "FYMCA",
+    "attendance": 66,
+    "marks": {
+      "web": 54,
+      "java": 45,
+      "dbms": 44,
+      "python": 42,
+      "maths": 42
+    },
+    "assignmentsCompleted": 8,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      44,
+      48,
+      50,
+      54,
+      53
+    ]
+  },
+  {
+    "id": "2026510051",
+    "name": "Manvith Manoj Poojary",
+    "class": "FYMCA",
+    "attendance": 100,
+    "marks": {
+      "web": 100,
+      "java": 100,
+      "dbms": 100,
+      "python": 100,
+      "maths": 100
+    },
+    "assignmentsCompleted": 10,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      100,
+      100,
+      100,
+      100,
+      100
+    ]
+  },
+  {
+    "id": "2026510052",
+    "name": "Gayatri Sandeep Pradhan",
+    "class": "FYMCA",
+    "attendance": 69,
+    "marks": {
+      "web": 44,
+      "java": 54,
+      "dbms": 53,
+      "python": 50,
+      "maths": 49
+    },
+    "assignmentsCompleted": 8,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      41,
+      49,
+      44,
+      55,
+      54
+    ]
+  },
+  {
+    "id": "2026510053",
+    "name": "Jay Purohit",
+    "class": "FYMCA",
+    "attendance": 94,
+    "marks": {
+      "web": 67,
+      "java": 65,
+      "dbms": 65,
+      "python": 66,
+      "maths": 62
+    },
+    "assignmentsCompleted": 8,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      68,
+      70,
+      63,
+      65,
+      69
+    ]
+  },
+  {
+    "id": "2026510054",
+    "name": "Keyur Khodidas Rathod",
+    "class": "FYMCA",
+    "attendance": 79,
+    "marks": {
+      "web": 70,
+      "java": 77,
+      "dbms": 65,
+      "python": 74,
+      "maths": 76
+    },
+    "assignmentsCompleted": 9,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      69,
+      69,
+      66,
+      74,
+      65
+    ]
+  },
+  {
+    "id": "2026510055",
+    "name": "Pratik Vijay Raut",
+    "class": "FYMCA",
+    "attendance": 96,
+    "marks": {
+      "web": 47,
+      "java": 50,
+      "dbms": 44,
+      "python": 54,
+      "maths": 47
+    },
+    "assignmentsCompleted": 5,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      45,
+      46,
+      47,
+      47,
+      56
+    ]
+  },
+  {
+    "id": "2026510056",
+    "name": "Hemant Kishor Savale",
+    "class": "FYMCA",
+    "attendance": 91,
+    "marks": {
+      "web": 48,
+      "java": 53,
+      "dbms": 44,
+      "python": 53,
+      "maths": 45
+    },
+    "assignmentsCompleted": 8,
+    "assignmentsTotal": 10,
+    "status": "Inactive",
+    "tests": [
+      42,
+      47,
+      47,
+      46,
+      49
+    ]
+  },
+  {
+    "id": "2026510057",
+    "name": "Alisher Sayed",
+    "class": "FYMCA",
+    "attendance": 98,
+    "marks": {
+      "web": 87,
+      "java": 87,
+      "dbms": 95,
+      "python": 93,
+      "maths": 90
+    },
+    "assignmentsCompleted": 8,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      91,
+      80,
+      93,
+      94,
+      92
+    ]
+  },
+  {
+    "id": "2026510058",
+    "name": "Nadiya Shaikh",
+    "class": "FYMCA",
+    "attendance": 96,
+    "marks": {
+      "web": 54,
+      "java": 62,
+      "dbms": 56,
+      "python": 63,
+      "maths": 64
+    },
+    "assignmentsCompleted": 9,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      62,
+      55,
+      57,
+      60,
+      60
+    ]
+  },
+  {
+    "id": "2026510059",
+    "name": "Saif Hasan Shaikh",
+    "class": "FYMCA",
+    "attendance": 87,
+    "marks": {
+      "web": 62,
+      "java": 63,
+      "dbms": 65,
+      "python": 66,
+      "maths": 59
+    },
+    "assignmentsCompleted": 10,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      64,
+      63,
+      68,
+      68,
+      70
+    ]
+  },
+  {
+    "id": "2026510060",
+    "name": "Ashraf Ibrahim Shaikh",
+    "class": "FYMCA",
+    "attendance": 63,
+    "marks": {
+      "web": 71,
+      "java": 59,
+      "dbms": 66,
+      "python": 65,
+      "maths": 57
+    },
+    "assignmentsCompleted": 5,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      70,
+      62,
+      65,
+      65,
+      66
+    ]
+  },
+  {
+    "id": "2026510061",
+    "name": "Shubham Nitin Shete",
+    "class": "FYMCA",
+    "attendance": 83,
+    "marks": {
+      "web": 49,
+      "java": 43,
+      "dbms": 38,
+      "python": 36,
+      "maths": 40
+    },
+    "assignmentsCompleted": 8,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      41,
+      40,
+      38,
+      42,
+      40
+    ]
+  },
+  {
+    "id": "2026510062",
+    "name": "Neha Nilkanth Shingare",
+    "class": "FYMCA",
+    "attendance": 76,
+    "marks": {
+      "web": 87,
+      "java": 85,
+      "dbms": 94,
+      "python": 82,
+      "maths": 88
+    },
+    "assignmentsCompleted": 10,
+    "assignmentsTotal": 10,
+    "status": "Inactive",
+    "tests": [
+      80,
+      91,
+      88,
+      80,
+      85
+    ]
+  },
+  {
+    "id": "2026510063",
+    "name": "Abhinav Singh",
+    "class": "FYMCA",
+    "attendance": 70,
+    "marks": {
+      "web": 69,
+      "java": 81,
+      "dbms": 69,
+      "python": 72,
+      "maths": 72
+    },
+    "assignmentsCompleted": 8,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      81,
+      68,
+      77,
+      70,
+      71
+    ]
+  },
+  {
+    "id": "2026510064",
+    "name": "Yuvraj Singh",
+    "class": "FYMCA",
+    "attendance": 69,
+    "marks": {
+      "web": 67,
+      "java": 71,
+      "dbms": 75,
+      "python": 68,
+      "maths": 76
+    },
+    "assignmentsCompleted": 6,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      68,
+      65,
+      72,
+      72,
+      74
+    ]
+  },
+  {
+    "id": "2026510065",
+    "name": "Vedant Harkesh Tamore",
+    "class": "FYMCA",
+    "attendance": 74,
+    "marks": {
+      "web": 43,
+      "java": 34,
+      "dbms": 48,
+      "python": 38,
+      "maths": 43
+    },
+    "assignmentsCompleted": 5,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      43,
+      47,
+      39,
+      39,
+      44
+    ]
+  },
+  {
+    "id": "2026510066",
+    "name": "Vishal Vishwasrao Thombre",
+    "class": "FYMCA",
+    "attendance": 69,
+    "marks": {
+      "web": 91,
+      "java": 84,
+      "dbms": 82,
+      "python": 92,
+      "maths": 93
+    },
+    "assignmentsCompleted": 9,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      84,
+      93,
+      90,
+      89,
+      92
+    ]
+  },
+  {
+    "id": "2026510067",
+    "name": "Aadesh Satish Tikhe",
+    "class": "FYMCA",
+    "attendance": 88,
+    "marks": {
+      "web": 58,
+      "java": 56,
+      "dbms": 60,
+      "python": 55,
+      "maths": 51
+    },
+    "assignmentsCompleted": 8,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      57,
+      59,
+      54,
+      49,
+      62
+    ]
+  },
+  {
+    "id": "2026510068",
+    "name": "Aditi Dilip Warungase",
+    "class": "FYMCA",
+    "attendance": 79,
+    "marks": {
+      "web": 61,
+      "java": 65,
+      "dbms": 64,
+      "python": 58,
+      "maths": 62
+    },
+    "assignmentsCompleted": 9,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      52,
+      56,
+      52,
+      61,
+      58
+    ]
+  },
+  {
+    "id": "2026510069",
+    "name": "Puneet Deepnarayan Yadav",
+    "class": "FYMCA",
+    "attendance": 77,
+    "marks": {
+      "web": 74,
+      "java": 69,
+      "dbms": 69,
+      "python": 68,
+      "maths": 75
+    },
+    "assignmentsCompleted": 5,
+    "assignmentsTotal": 10,
+    "status": "Active",
+    "tests": [
+      72,
+      70,
+      65,
+      66,
+      74
+    ]
+  }
+]

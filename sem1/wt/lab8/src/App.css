@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  background-color: #f4f4f4;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  flex: 1;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.card p {
+  font-size: 28px;
+  margin: 5px;
+}
+
+.filters {
+  margin-bottom: 10px;
+}
+
+.filters input,
+.filters select {
+  padding: 6px;
+  margin-right: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 6px;
+  text-align: left;
+}
+
+th {
+  background-color: #ddd;
+}
+
+.details {
+  background-color: white;
+  border: 1px solid #999;
+  padding: 10px 20px;
+  margin: 20px 0;
+}
