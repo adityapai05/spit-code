@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-const int SIZE = 100;
+const int SIZE = 5;
 
 class CircularQueue
 {

@@ -52,7 +52,7 @@ public:
         cout << value << " was enqueued with priority " << p << "." << endl;
         display();
     }
-    
+
     void dequeue()
     {
         if (isEmpty())

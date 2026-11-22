@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-const int SIZE = 10;
+const int SIZE = 5;
 
 struct Packet
 {
